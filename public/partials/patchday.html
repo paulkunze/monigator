@@ -1,0 +1,99 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div id="patchday" layout="column" ng-init="ctrl.loadDataForView()">
+
+  <div layout-xs="column" layout="row">
+    <h2 class="md-display-1 layout-padding">
+      {{ctrl.caption}}
+    </h2>
+
+    <div flex></div>
+
+    <div class="center-flex">
+      <md-button ui-sref='patchday' ng-class="{'min-width-40':$mdMedia('xs')}">Aktuell</md-button>
+      <md-button ui-sref='patchday.week' ng-class="{'min-width-40':$mdMedia('xs')}">Woche</md-button>
+      <md-button ui-sref='patchday.month' ng-class="{'min-width-40':$mdMedia('xs')}">Monat</md-button>
+    </div>
+  </div>
+
+  <div layout="row" class="height-60">
+    <div ng-hide="ctrl.view === 'current'">
+      <md-button ng-click="ctrl.loadDataForPreviousWeek()" class="md-raised" aria-label="Zurück"
+                 ng-class="{'min-width-40':$mdMedia('xs')}" ng-if="ctrl.view === 'week'">
+        <md-icon class="margin-top-minus3" md-svg-icon="res/img/chevron_left_black.svg"></md-icon>
+        <span hide-xs>Vorige Woche</span>
+      </md-button>
+      <md-button ng-click="ctrl.loadDataForPreviousMonth()" class="md-raised" aria-label="Zurück"
+                 ng-class="{'min-width-40':$mdMedia('xs')}" ng-if="ctrl.view === 'month'">
+        <md-icon class="margin-top-minus3" md-svg-icon="res/img/chevron_left_black.svg"></md-icon>
+        <span hide-xs>Voriger Monat</span>
+      </md-button>
+    </div>
+    <div flex="5" ng-hide="ctrl.view === 'current'"></div>
+    <md-input-container md-no-float class="padding-side-8 margin-8" flex>
+      <md-icon class="color-icon md-primary input-icon" md-svg-icon="res/img/filter_list_black.svg"></md-icon>
+      <input ng-model="ctrl.searchTerm" placeholder="Filtern">
+    </md-input-container>
+    <div flex="5" ng-hide="ctrl.view === 'current'"></div>
+    <div ng-hide="ctrl.view === 'current'">
+      <md-button ng-click="ctrl.loadDataForNextWeek()" class="md-raised" aria-label="Weiter"
+                 ng-class="{'min-width-40':$mdMedia('xs')}" ng-if="ctrl.view === 'week'">
+        <span hide-xs>Nächste Woche</span>
+        <md-icon class="margin-top-minus3" md-svg-icon="res/img/chevron_right_black.svg"></md-icon>
+      </md-button>
+      <md-button ng-click="ctrl.loadDataForNextMonth()" class="md-raised" aria-label="Weiter"
+                 ng-class="{'min-width-40':$mdMedia('xs')}" ng-if="ctrl.view === 'month'">
+        <span hide-xs>Nächster Monat</span>
+        <md-icon class="margin-top-minus3" md-svg-icon="res/img/chevron_right_black.svg"></md-icon>
+      </md-button>
+    </div>
+  </div>
+
+  <md-content id="cards">
+    <div layout-wrap layout-xs="column" layout="row" layout-align="space-around stretch">
+
+      <md-card flex-gt-xs class="patchday-card" ng-class="{'highlighted-day':ctrl.isToday(date) || ctrl.isInUrl(date)}"
+               ng-repeat="(date, hours) in ctrl.data.json" ng-show="ctrl.hasMatchesForCard(hours)">
+        <md-card-title flex="initial">
+          <md-card-title-text>
+            <span class="md-headline">{{ctrl.getDayNameFromString(date)}}<br>{{date}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <table>
+            <tr ng-repeat="(hour, servers) in hours" ng-show="ctrl.hasMatchesForHour(servers)">
+              <td class="align-top">
+                {{hour}}
+              </td>
+              <td class="padding-side-8 full-width">
+                <div ng-repeat="(server, content) in servers">
+                  <div layout="row" ng-if="server.indexOf(ctrl.searchTerm) > -1">
+                    {{server}}
+                    <div flex></div>
+                    <md-icon ng-if="content.QCOMMENTS_PUBLIC != null"
+                             ng-click="ctrl.showCommentsDialog($event, server, content)"
+                             class="color-icon pointer height-20" md-svg-icon="res/img/message_black.svg"></md-icon>
+                    <md-icon ng-if="content.PK_COMMENTS_PUBLIC != null && content.QCOMMENTS_PUBLIC == null"
+                             ng-click="ctrl.showCommentsDialog($event, server, content)"
+                             class="color-icon pointer height-20" md-svg-icon="res/img/chat_black.svg"></md-icon>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </md-card-content>
+      </md-card>
+    </div>
+
+  </md-content>
+
+  <div class="center-flex" ng-if="ctrl.errorOccured">
+    <div class="hint-card md-whiteframe-z1 round-corners md-padding"
+         ng-class="{'width-50p':$mdMedia('gt-xs')}">
+      Für den gewählten Zeitraum sind keine Daten verfügbar.
+    </div>
+  </div>
+</div>

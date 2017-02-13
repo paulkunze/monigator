@@ -1,0 +1,503 @@
+{
+    "ASR": {
+        "Abnahme": {
+            "severity": 10,
+            "woronesch": {
+                "severity": 10
+            }
+        },
+        "Produktion": {
+            "mendhausen": {
+                "severity": 10
+            },
+            "polkowice": {
+                "severity": 10
+            },
+            "polomolok": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Test": {
+            "neuruppin": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Wartung": {
+            "kakamega": {
+                "severity": 10
+            },
+            "narubad": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 10
+    },
+    "Archivierung": {
+        "Produktion": {
+            "archivie-100b": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Test": {
+            "archivie-200b": {
+                "severity": 20
+            },
+            "severity": 20
+        },
+        "Wartung": {
+            "archivie-201b": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 20
+    },
+    "CAM": {
+        "Produktion": {
+            "mvsblp7.rzbln.db.de": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Test": {
+            "mvsble2.rzbln.db.de": {
+                "severity": 30
+            },
+            "severity": 30
+        },
+        "Wartung": {
+            "mvsbla2.rzbln.db.de": {
+                "severity": 30
+            },
+            "severity": 30
+        },
+        "severity": 30
+    },
+    "CAM_WOTAN": {
+        "Abnahme": {
+            "neudenau": {
+                "severity": 20
+            },
+            "severity": 20
+        },
+        "Produktion": {
+            "naha": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 20
+    },
+    "CIS": {
+        "Abnahme": {
+            "cis-209b": {
+                "severity": 20
+            },
+            "cis-211b": {
+                "severity": 10
+            },
+            "severity": 20
+        },
+        "Entwicklung": {
+            "cis-207b": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Produktion": {
+            "cis-app-1": {
+                "severity": 20
+            },
+            "severity": 20
+        },
+        "severity": 20
+    },
+    "CPI": {
+        "Abnahme": {
+            "detroit": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Produktion": {
+            "pathein": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Test": {
+            "dreieich": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Wartung": {
+            "ruhland": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 10
+    },
+    "EIP": {
+        "Abnahme": {
+            "blnsrd11195": {
+                "severity": 10
+            },
+            "blnsva11075": {
+                "severity": 10
+            },
+            "blnsva11076": {
+                "severity": 10
+            },
+            "de-blnsva11000": {
+                "severity": 10
+            },
+            "de-blnsva11001": {
+                "severity": 10
+            },
+            "de-blnsva1ac01": {
+                "severity": 20
+            },
+            "de-blnsva1ac02": {
+                "severity": 10
+            },
+            "severity": 20
+        },
+        "Entwicklung": {
+            "de-blnsva1ai11": {
+                "severity": 10
+            },
+            "de-blnsva1ai16": {
+                "severity": 20
+            },
+            "de-ffmsva63003": {
+                "severity": 20
+            },
+            "ffmsva63251": {
+                "severity": 10
+            },
+            "ffmsva63252": {
+                "severity": 20
+            },
+            "ffmsva63258": {
+                "severity": 20
+            },
+            "ffmsva63259": {
+                "severity": 20
+            },
+            "ffmsva63260": {
+                "severity": 20
+            },
+            "ffmsva63261": {
+                "severity": 20
+            },
+            "ffmsva63262": {
+                "severity": 10
+            },
+            "severity": 20
+        },
+        "Produktion": {
+            "blnsrd11262": {
+                "severity": 10
+            },
+            "blnsrd11264": {
+                "severity": 10
+            },
+            "blnsrd11266": {
+                "severity": 10
+            },
+            "blnsrd11275": {
+                "severity": 10
+            },
+            "blnsrd11276": {
+                "severity": 10
+            },
+            "blnsrd11277": {
+                "severity": 10
+            },
+            "blnsrd11280": {
+                "severity": 10
+            },
+            "de-blnsva001037": {
+                "severity": 10
+            },
+            "de-blnsva1ad13": {
+                "severity": 10
+            },
+            "de-blnsva1ad14": {
+                "severity": 10
+            },
+            "de-blnsva1ad15": {
+                "severity": 10
+            },
+            "de-blnsva1e007": {
+                "severity": 10
+            },
+            "de-blnsva1f020": {
+                "severity": 10
+            },
+            "de-blnsva1f129": {
+                "severity": 10
+            },
+            "ffmsrd99688": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Test": {
+            "de-blnsva1ai22": {
+                "severity": 10
+            },
+            "de-blnsva1ai27": {
+                "severity": 10
+            },
+            "de-ffmsva63002": {
+                "severity": 10
+            },
+            "ffmsva63253": {
+                "severity": 20
+            },
+            "ffmsva63254": {
+                "severity": 20
+            },
+            "ffmsva63255": {
+                "severity": 20
+            },
+            "ffmsva63256": {
+                "severity": 20
+            },
+            "ffmsva63257": {
+                "severity": 10
+            },
+            "ffmsva63299": {
+                "severity": 10
+            },
+            "severity": 20
+        },
+        "severity": 20
+    },
+    "FKF-MIP": {
+        "Abnahme": {
+            "fkfmip-201v": {
+                "severity": 10
+            },
+            "fkfmip-204v": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Entwicklung": {
+            "fkfmip-202v": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Produktion": {
+            "fkfmip-101v": {
+                "severity": 10
+            },
+            "fkfmip-102v": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 10
+    },
+    "Galileo": {
+        "Abnahme": {
+            "pocking": {
+                "severity": 10
+            },
+            "portalegre": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Produktion": {
+            "ponitz": {
+                "severity": 10
+            },
+            "putzbrunn": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 10
+    },
+    "KUSS": {
+        "Abnahme": {
+            "kussat-2x0d-mq.unix.rz.db.de": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Produktion": {
+            "kuss-100d-mq": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Test": {
+            "kuss-204b": {
+                "severity": 10
+            },
+            "kuss-205b": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Wartung": {
+            "kusscl-2x0d-mq": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 10
+    },
+    "MQTEST": {
+        "Test": {
+            "pearl": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 10
+    },
+    "MessageSight": {
+        "Abnahme": {
+            "msmwt1": {
+                "severity": 20
+            },
+            "severity": 20
+        },
+        "Produktion": {
+            "msmwpcluster": {
+                "severity": 20
+            },
+            "severity": 20
+        },
+        "severity": 20
+    },
+    "SRESB-HA": {
+        "Abnahme": {
+            "severity": 10,
+            "valdosta": {
+                "severity": 10
+            },
+            "varanasi": {
+                "severity": 10
+            },
+            "vellmar": {
+                "severity": 10
+            },
+            "vinales": {
+                "severity": 10
+            }
+        },
+        "Entwickling": {
+            "neiba": {
+                "severity": 30
+            },
+            "severity": 30
+        },
+        "Produktion": {
+            "severity": 30,
+            "vachdorf": {
+                "severity": 30
+            },
+            "vahldorf": {
+                "severity": 30
+            },
+            "velbert": {
+                "severity": 10
+            },
+            "velgast": {
+                "severity": 10
+            }
+        },
+        "severity": 30
+    },
+    "Scintilla": {
+        "Abnahme": {
+            "salatig": {
+                "severity": 30
+            },
+            "severity": 30,
+            "siebenaler": {
+                "severity": 30
+            },
+            "sindor": {
+                "severity": 30
+            },
+            "sonlez": {
+                "severity": 30
+            }
+        },
+        "Produktion": {
+            "sadovo": {
+                "severity": 30
+            },
+            "saltnes": {
+                "severity": 30
+            },
+            "samea": {
+                "severity": 30
+            },
+            "selscheid": {
+                "severity": 30
+            },
+            "severity": 30
+        },
+        "severity": 30
+    },
+    "ServicePortal": {
+        "Abnahme": {
+            "severity": 10,
+            "siebenlehn": {
+                "severity": 10
+            }
+        },
+        "Produktion": {
+            "pritzwalk": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 10
+    },
+    "UDG": {
+        "Abnahme": {
+            "palu": {
+                "severity": 10
+            },
+            "pockau": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "Produktion": {
+            "ironton": {
+                "severity": 10
+            },
+            "izmir": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 10
+    },
+    "WOTAN": {
+        "Test": {
+            "neuruppin": {
+                "severity": 10
+            },
+            "severity": 10
+        },
+        "severity": 10
+    }
+}

@@ -1,0 +1,83 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div ng-controller="MainCtrl">
+  <div class="md-toolbar-tools" ng-hide="showMobileSearch">
+    <md-button hide-gt-sm ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
+      <md-icon md-svg-icon="res/img/menu.svg"></md-icon>
+    </md-button>
+
+    <h3>{{caption}}</h3>
+    <span flex></span>
+
+    <md-button hide-xs hide-sm ng-click="startSearch()" class="md-icon-button" aria-label="Start search">
+      <md-tooltip>
+        Suche starten
+      </md-tooltip>
+      <md-icon md-svg-icon="res/img/search_white.svg"></md-icon>
+    </md-button>
+    <md-input-container hide-xs hide-sm md-no-float class="toolbar-search md-block" flex="30">
+      <form ng-submit="startSearch()">
+        <input id="search" ng-model="searchInput.searchTerm" placeholder="Alles durchsuchen">
+      </form>
+    </md-input-container>
+
+    <md-button hide-gt-sm class="md-icon-button" aria-label="Show search box" ng-click="showMobileSearch = true">
+      <md-icon md-svg-icon="res/img/search_white.svg"></md-icon>
+    </md-button>
+    <md-button class="md-icon-button" aria-label="Status anzeigen" ui-sref="pymon.status"
+               ng-if="isPymonState()">
+      <md-tooltip>
+        Interner Zustand
+      </md-tooltip>
+      <md-icon md-svg-icon="res/img/memory_white.svg"></md-icon>
+    </md-button>
+    <md-menu md-position-mode="target-right target">
+      <md-button class="md-icon-button" aria-label="Menu" ng-click="$mdOpenMenu($event)">
+        <md-icon md-menu-origin md-svg-icon="res/img/more_vert_white.svg"></md-icon>
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item>
+          <md-button ng-click="showSettingsDialog($event, settingsService.settings, settingsService.standardSettings)">
+            <div layout="row" flex>
+              <p flex>Einstellungen</p>
+              <md-icon md-menu-align-target md-svg-icon="res/img/settings_black.svg"></md-icon>
+            </div>
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button ng-click="showFeedbackDialog($event)">
+            <div layout="row" flex>
+              <p flex>Feedback</p>
+              <md-icon md-menu-align-target md-svg-icon="res/img/feedback_black.svg"></md-icon>
+            </div>
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div>
+
+  <div class="md-toolbar-tools" ng-show="showMobileSearch">
+    <md-button ng-click="showMobileSearch = false" class="md-icon-button" aria-label="Back">
+      <md-icon md-svg-icon="res/img/arrow_back_white.svg"></md-icon>
+    </md-button>
+
+    <md-input-container md-no-float class="toolbar-search md-block" flex>
+      <form ng-submit="startSearch()">
+        <input id="mobileSearch" ng-model="searchInput.searchTerm" placeholder="Suche">
+      </form>
+    </md-input-container>
+
+    <md-button ng-click="searchInput = ''" class="md-icon-button" aria-label="Clear input">
+      <md-icon md-svg-icon="res/img/clear_white.svg"></md-icon>
+    </md-button>
+
+    <md-button ng-click="startSearch()"
+               ng-disabled="searchInput == null || searchInput == ''"
+               class="md-icon-button" aria-label="Start search">
+      <md-icon class="color-icon" md-svg-icon="res/img/send_white.svg"></md-icon>
+    </md-button>
+  </div>
+</div>

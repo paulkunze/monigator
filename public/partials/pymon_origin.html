@@ -1,0 +1,130 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div id="pymon_origin" class="overflow-none padding-side-8" ng-init="ctrl.getOrigin()">
+
+  <div ncy-breadcrumb></div>
+
+  <div class="md-whiteframe-z1 round-corners margin-top-bottom-40"
+       ng-class="{'margin-10p':$mdMedia('gt-xs')}">
+
+    <md-toolbar class="round-corners-top md-hue-1 z-1">
+      <h1 class="md-toolbar-tools">
+        Suborigins der Origin {{ctrl.getOriginName()}}
+      </h1>
+    </md-toolbar>
+
+    <div ng-if="!ctrl.requestFinished" class="list-loading-indicator">
+      <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+    </div>
+    <!-- menu items -->
+    <div class="md-padding margin-bottom-minus8" layout="row" flex ng-if="ctrl.requestFinished && !ctrl.isListEmpty">
+      <!-- name filter -->
+      <md-input-container md-no-float class="md-block pymon-filter-input-container" layout="row" flex>
+        <md-icon class="color-icon md-primary input-icon" md-svg-icon="res/img/filter_list_black.svg"></md-icon>
+        <input ng-model="filterService.suboriginFilter" type="text" placeholder="Filter">
+      </md-input-container>
+      <!-- status filter -->
+      <md-divider hide-xs hide-sm class="margin-left-20 margin-right-16"></md-divider>
+      <div class="center-flex margin-top-4">
+        <md-checkbox hide-xs hide-sm ng-model="filterService.showInfo" class="md-primary md-hue-1 filter-checkbox"
+                     aria-label="Checkbox Info">
+          <md-icon class="color-icon fill-green" md-svg-icon="res/img/check_circle_black.svg"></md-icon>
+        </md-checkbox>
+        <md-checkbox hide-xs hide-sm ng-model="filterService.showWarning" class="md-primary md-hue-1 filter-checkbox"
+                     aria-label="Checkbox Warning">
+          <md-icon class="color-icon fill-orange" md-svg-icon="res/img/warning_black.svg"></md-icon>
+        </md-checkbox>
+        <md-checkbox hide-xs hide-sm ng-model="filterService.showError" class="md-primary md-hue-1 filter-checkbox"
+                     aria-label="Checkbox Error">
+          <md-icon class="color-icon fill-red" md-svg-icon="res/img/error_black.svg"></md-icon>
+        </md-checkbox>
+        <md-menu hide-gt-sm md-position-mode="target-right target">
+          <md-button class="md-icon-button top-minus-6" aria-label="Status filters" ng-click="$mdOpenMenu($event)">
+            <md-icon md-menu-origin class="color-icon" md-svg-icon="res/img/more_vert_black.svg"></md-icon>
+          </md-button>
+          <md-menu-content width="4">
+            <md-menu-item>
+              <div class="center-flex">
+                <md-checkbox ng-model="filterService.showInfo" class="md-primary md-hue-1 filter-checkbox"
+                             aria-label="Checkbox Info">
+                  <md-icon class="color-icon fill-green" md-svg-icon="res/img/check_circle_black.svg"></md-icon>
+                </md-checkbox>
+                <md-checkbox ng-model="filterService.showWarning" class="md-primary md-hue-1 filter-checkbox"
+                             aria-label="Checkbox Warning">
+                  <md-icon class="color-icon fill-orange" md-svg-icon="res/img/warning_black.svg"></md-icon>
+                </md-checkbox>
+                <md-checkbox ng-model="filterService.showError" class="md-primary md-hue-1 filter-checkbox"
+                             aria-label="Checkbox Error">
+                  <md-icon class="color-icon fill-red" md-svg-icon="res/img/error_black.svg"></md-icon>
+                </md-checkbox>
+              </div>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </div>
+      <md-divider ng-class="{'margin-left-16':$mdMedia('gt-sm')}"></md-divider>
+      <!-- reload button -->
+      <div>
+        <md-button class="md-primary margin-left-20" ng-class="{'md-icon-button reload-button':$mdMedia('xs')}"
+                   ng-click="ctrl.getOrigin()">
+          <md-icon class="color-icon" md-svg-icon="res/img/update_black.svg"></md-icon>
+          <span hide-xs>Liste neu laden</span>
+        </md-button>
+      </div>
+    </div>
+    <!-- list with entries -->
+    <md-list>
+      <div class="md-padding" ng-if="ctrl.isListEmpty">
+        Keine Felder vorhanden
+      </div>
+      <md-list-item ng-repeat="(suborigin, data) in ctrl.data.origin"
+                    ui-sref="pymon.host.origin.suborigin({sname:suborigin})"
+                    ng-if="suborigin.indexOf(filterService.suboriginFilter) > -1 && ctrl.filterMatches(data.severity)"
+                    ng-class="{'list-item-info': severityService.isSeverityInfo(data.severity),
+                    'list-item-warning': severityService.isSeverityWarning(data.severity),
+                    'list-item-error': severityService.isSeverityError(data.severity)}"
+                    class="pymon-list-item truncate-text">
+        <p>{{suborigin}}</p>
+        <span flex></span>
+        <!-- OK/ Info -->
+        <md-icon ng-if="severityService.isSeverityInfo(data.severity)" md-svg-icon="res/img/check_circle_black.svg"
+                 class="md-avatar color-icon fill-green">
+          <md-tooltip>
+            Severity: {{data.severity}}
+          </md-tooltip>
+        </md-icon>
+        <!-- Warning -->
+        <md-icon ng-if="severityService.isSeverityWarning(data.severity)"
+                 md-svg-icon="res/img/warning_black.svg" class="md-avatar color-icon fill-orange">
+          <md-tooltip>
+            Severity: {{data.severity}}
+          </md-tooltip>
+        </md-icon>
+        <!-- Error -->
+        <md-icon
+            ng-if="severityService.isSeverityError(data.severity)"
+            md-svg-icon="res/img/error_black.svg" class="md-avatar color-icon fill-red">
+          <md-tooltip>
+            Severity: {{data.severity}}
+          </md-tooltip>
+        </md-icon>
+        <!-- None -->
+        <md-icon ng-if="severityService.isSeverityNone(data.severity)" md-svg-icon="res/img/help_outline_black.svg"
+                 class="md-avatar color-icon fill-grey">
+          <md-tooltip>
+            Severity: {{data.severity}}
+          </md-tooltip>
+        </md-icon>
+      </md-list-item>
+    </md-list>
+  </div>
+
+  <md-button id="scroll-up" class="md-fab md-fab-bottom-right sliding-fab" aria-label="Nach oben" scrolling-fab
+             ng-click="scrollTo('pymon_origin')">
+    <md-icon md-svg-icon="res/img/arrow_up_white.svg"></md-icon>
+  </md-button>
+
+</div>

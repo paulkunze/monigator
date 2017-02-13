@@ -1,0 +1,83 @@
+{
+  "results": [
+    {
+      "_stamp": 1473670976,
+      "cmd": "_return",
+      "fun": "state.sls",
+      "fun_args": [
+        "roles.oracle.wlstmonitoring",
+        {
+          "__kwarg__": true,
+          "pillar": {
+            "DomainNameKey": "msgdomain_scn_f1"
+          }
+        }
+      ],
+      "id": "soa@sonlez",
+      "jid": "20160912130247823396",
+      "out": "highstate",
+      "retcode": 0,
+      "return": {
+        "file_|-/app/soa/domains/msgdomain_scn_f1/wlstmonitoring_|-/app/soa/domains/msgdomain_scn_f1/wlstmonitoring_|-recurse": {
+          "__run_num__": 1,
+          "changes": {
+            "/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/monitoring.properties": {
+              "diff": "---  \n+++  \n@@ -1,45 +1,45 @@\n #-------------------------------------------------------------------\n # Properties for JMS monitoring backend\n #-------------------------------------------------------------------\n-monitoring.servername=modawmdw-201v.linux.rz.db.de\n-monitoring.port=1984\n+monitoring.servername=10.35.136.36\n+monitoring.port=8357\n \n #-------------------------------------------------------------------\n # Properties for scheduler classes\n #-------------------------------------------------------------------\n-scheduler.sendmessages=true\n-scheduler.debugmessages=false\n+scheduler.sendmessages=false\n+scheduler.debugmessages=true\n \n ## File which store the time of te last execution\n-scheduler.time.file=../monitoring.time\n+scheduler.time.file=../scheduler.time\n scheduler.wlst.logfile=../logs/wlst.log\n-scheduler.pausetime=120\n+scheduler.pausetime=60\n \n #-------------------------------------------------------------------\n # Properties for scheduler/weblogic classes\n #-------------------------------------------------------------------\n-scheduler.wls.server=sonlez-scintilla-a4.linux.rz.db.de\n-scheduler.wls.hostname=sonlez\n-scheduler.wls.adminname=admwls_scn_f1\n+scheduler.wls.server=10.179.82.16\n+scheduler.wls.hostname=10.179.82.16\n scheduler.wls.port=7357\n scheduler.wls.username=system\n-scheduler.wls.password=2app4slesb!\n-scheduler.wls.origin=msgdomain_scn_f1\n+scheduler.wls.password=6color12\n+\n scheduler.wls.jmx.timeout=60000\n \n #-------------------------------------------------------------------\n # Properties for tasks.py\n #-------------------------------------------------------------------\n+scheduler.wls.origin=esbdomain_lueder_d1\n \n scheduler.tasks.server.runtime=true\n scheduler.tasks.server.lifecycle=true\n scheduler.tasks.jms.runtime=true\n scheduler.tasks.jta.runtime=true\n scheduler.tasks.messagebridge.runtime=true\n-scheduler.tasks.jdbc.runtime=false\n-scheduler.tasks.osb.statistics=false\n-scheduler.tasks.deployments=false\n-scheduler.tasks.migratabletargets=false\n+scheduler.tasks.jdbc.runtime=true\n+scheduler.tasks.osb.statistics=true\n+scheduler.tasks.deployments=true\n+scheduler.tasks.migratabletargets=true\n \n scheduler.tasks.jms.queue.warning=100\n scheduler.tasks.jms.queue.critical=1000\n@@ -51,20 +51,17 @@\n scheduler.tasks.jms.pending.critical=100\n scheduler.tasks.jms.pending.warning=10\n \n-scheduler.tasks.jms.queue.size=true\n+scheduler.tasks.jms.queue.size=false\n scheduler.tasks.jms.queue.names=\n-#CadisMessage_OQ,CadisMessage_IQ,OutputManagement_IQ_ATSTR,ConverterMessage_OQ,OutputManagement_IQ_ATSTR,ConverterMessage_IQ,OutputDocumentManagement_OQ_ATSTR\n+#monitoring.queue.names=CadisMessage_OQ,CadisMessage_IQ,OutputManagement_IQ_ATSTR,ConverterMessage_OQ,OutputManagement_IQ_ATSTR,ConverterMessage_IQ,OutputDocumentManagement_OQ_ATSTR\n scheduler.tasks.jms.queue.names.ignore=TemporaryQueue\n \n-scheduler.tasks.deployments.names=_ALSB\n+scheduler.tasks.deployments.names=\n \n-## Monitoring Migratable Targets\n+#monitoring.details=true\n+\n # We define the preferred Server for the migratable targets. (max. 1000 mgts)\n-scheduler.tasks.migratabletarget.1.name=msgsvr_scn_t1_1 (migratable)\n-scheduler.tasks.migratabletarget.1.preferredserver=msgsvr_scn_t1_1\n-scheduler.tasks.migratabletarget.2.name=msgsvr_scn_t1_2 (migratable)\n-scheduler.tasks.migratabletarget.2.preferredserver=msgsvr_scn_t1_2\n-scheduler.tasks.migratabletarget.3.name=msgsvr_scn_t1_3 (migratable)\n-scheduler.tasks.migratabletarget.3.preferredserver=msgsvr_scn_t1_3\n-scheduler.tasks.migratabletarget.4.name=msgsvr_scn_t1_4 (migratable)\n-scheduler.tasks.migratabletarget.4.preferredserver=msgsvr_scn_t1_4\n+scheduler.tasks.migratabletarget.1.name=msgsvr_lueder_d1_1 (migratable)\n+scheduler.tasks.migratabletarget.1.preferredserver=msgsvr_lueder_d1_1\n+scheduler.tasks.migratabletarget.2.name=msgsvr_lueder_d1_2 (migratable)\n+scheduler.tasks.migratabletarget.2.preferredserver=msgsvr_lueder_d1_2\n"
+            },
+            "/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/monitoring.sh": {
+              "diff": "---  \n+++  \n@@ -1,9 +1,9 @@\n #!/bin/sh\n \n-JAVA_HOME=/app/soa/soajdk\n+JAVA_HOME=/opt/soajdk\n export JAVA_HOME\n \n-WL_HOME=/app/soa/mw_msgdomain_scn_f1/wlserver\n+WL_HOME=/opt/middleware/wlserver_10.3\n export WL_HOME\n \n PATH=${JAVA_HOME}/bin:$PATH\n@@ -26,15 +26,14 @@\n fi\n  \n if [ \"${CLASSPATH}\" = \"\" ] ; then\n-\tCLASSPATH=.:${JAVA_HOME}/lib/tools.jar:${WL_HOME}/server/lib/weblogic.jar:../lib/monitoring_http.jar:../lib/log4j.jar:../lib/jeromq.jar\n+\tCLASSPATH=.:${JAVA_HOME}/lib/tools.jar:${WL_HOME}/server/lib/weblogic.jar:../lib/monitoring.jar:../lib/log4j.jar:../lib/jeromq.jar\n else\n-\tCLASSPATH=.:${JAVA_HOME}/lib/tools.jar:${WL_HOME}/server/lib/weblogic.jar:../lib/monitoring_http.jar:../lib/log4j.jar:../lib/jeromq.jar:$CLASSPATH\n+\tCLASSPATH=.:${JAVA_HOME}/lib/tools.jar:${WL_HOME}/server/lib/weblogic.jar:../lib/monitoring.jar:../lib/log4j.jar:../lib/jeromq.jar:$CLASSPATH\n fi\n export CLASSPATH\n \n \n-# Properties fuer WLST\n-WLST_PROPERTIES=\"-Dmonitoring.properties=$CURRDIR/monitoring.properties\"\n+WLST_PROPERTIES=\"-Dpython.path=$CURRDIR/wlst  -Dmonitoring.properties=$CURRDIR/monitoring.properties\"\n export WLST_PROPERTIES\n \n # PATHs\n"
+            },
+            "/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/wlst/monitor.py": {
+              "diff": "---  \n+++  \n@@ -139,11 +139,13 @@\n         self.wlsPort=self.getProperty(\"scheduler.wls.port\") \n \n         #quotas erzeugen fuer JMS testing\n+        #quotaLogging=toBool(self.getProperty(\"scheduler.tasks.jms.quota\")))\n         jmsWarningQuota  = long(self.getProperty(\"scheduler.tasks.jms.warning\"))\n         jmsCriticalQuota = long(self.getProperty(\"scheduler.tasks.jms.critical\"));\n         jmsWarningQuotaPending  = long(self.getProperty(\"scheduler.tasks.jms.pending.warning\"))\n         jmsCriticalQuotaPending = long(self.getProperty(\"scheduler.tasks.jms.pending.critical\"));\n \n+        queueLogging=toBool(self.getProperty(\"scheduler.tasks.jms.queue.size\")) \n         queueWarningQuota  = long(self.getProperty(\"scheduler.tasks.jms.queue.warning\"))\n         queueCriticalQuota = long(self.getProperty(\"scheduler.tasks.jms.queue.critical\"));\n         queueWarningQuotaPending  = long(self.getProperty(\"scheduler.tasks.jms.queue.pending.warning\"))\n@@ -152,7 +154,7 @@\n         queuesIgnore = self.getProperty(\"scheduler.tasks.jms.queue.names.ignore\")\n \n         jmsQuota = JMSQuota(1, jmsWarningQuota, jmsCriticalQuota, jmsWarningQuotaPending, jmsCriticalQuotaPending)\n-        destinationQuota = DestinationQuota(1, queueWarningQuota, queueCriticalQuota,queueWarningQuotaPending, queueCriticalQuotaPending, queues)\n+        destinationQuota = DestinationQuota(queueLogging, queueWarningQuota, queueCriticalQuota,queueWarningQuotaPending, queueCriticalQuotaPending, queues)\n \n         # Liste mit Testfaellen intialisieren\n         self.addTask( ServerLifeCycleTask(toBool(self.getProperty(\"scheduler.tasks.server.lifecycle\"))))\n"
+            }
+          },
+          "comment": "Recursively updated /app/soa/domains/msgdomain_scn_f1/wlstmonitoring",
+          "name": "/app/soa/domains/msgdomain_scn_f1/wlstmonitoring",
+          "result": true
+        },
+        "file_|-logfile_|-/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/logs/monitoring.log_|-append": {
+          "__run_num__": 3,
+          "changes": {
+            "diff": "---  \n+++  \n@@ -38940,3 +38940,4 @@\n 2016-09-12 13:02:40,519 [main] INFO  [monitor.py:DBWLSScheduler] - execution time= 85231 ms\n 2016-09-12 13:02:40,519 [main] INFO  [monitor.py:DBWLSScheduler] - runs: 14/100\n 2016-09-12 13:02:40,519 [main] DEBUG [monitor.py:DBWLSScheduler] - sleeping: 34769 ms\n+start new logfile\n"
+          },
+          "comment": "Appended 1 lines",
+          "name": "/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/logs/monitoring.log",
+          "result": true
+        },
+        "file_|-monitoring.properties_|-/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/monitoring.properties_|-managed": {
+          "__run_num__": 2,
+          "changes": {
+            "diff": "---  \n+++  \n@@ -1,45 +1,45 @@\n #-------------------------------------------------------------------\n # Properties for JMS monitoring backend\n #-------------------------------------------------------------------\n-monitoring.servername=10.35.136.36\n-monitoring.port=8357\n+monitoring.servername=modawmdw-201v.linux.rz.db.de\n+monitoring.port=1984\n \n #-------------------------------------------------------------------\n # Properties for scheduler classes\n #-------------------------------------------------------------------\n-scheduler.sendmessages=false\n-scheduler.debugmessages=true\n+scheduler.sendmessages=true\n+scheduler.debugmessages=false\n \n ## File which store the time of te last execution\n-scheduler.time.file=../scheduler.time\n+scheduler.time.file=../monitoring.time\n scheduler.wlst.logfile=../logs/wlst.log\n-scheduler.pausetime=60\n+scheduler.pausetime=120\n \n #-------------------------------------------------------------------\n # Properties for scheduler/weblogic classes\n #-------------------------------------------------------------------\n-scheduler.wls.server=10.179.82.16\n-scheduler.wls.hostname=10.179.82.16\n+scheduler.wls.server=sonlez-scintilla-a4.linux.rz.db.de\n+scheduler.wls.hostname=sonlez\n+scheduler.wls.adminname=admwls_scn_f1\n scheduler.wls.port=7357\n scheduler.wls.username=system\n-scheduler.wls.password=6color12\n-\n+scheduler.wls.password=2app4slesb!\n+scheduler.wls.origin=msgdomain_scn_f1\n scheduler.wls.jmx.timeout=60000\n \n #-------------------------------------------------------------------\n # Properties for tasks.py\n #-------------------------------------------------------------------\n-scheduler.wls.origin=esbdomain_lueder_d1\n \n scheduler.tasks.server.runtime=true\n scheduler.tasks.server.lifecycle=true\n scheduler.tasks.jms.runtime=true\n scheduler.tasks.jta.runtime=true\n scheduler.tasks.messagebridge.runtime=true\n-scheduler.tasks.jdbc.runtime=true\n-scheduler.tasks.osb.statistics=true\n-scheduler.tasks.deployments=true\n-scheduler.tasks.migratabletargets=true\n+scheduler.tasks.jdbc.runtime=false\n+scheduler.tasks.osb.statistics=false\n+scheduler.tasks.deployments=false\n+scheduler.tasks.migratabletargets=false\n \n scheduler.tasks.jms.queue.warning=100\n scheduler.tasks.jms.queue.critical=1000\n@@ -53,15 +53,18 @@\n \n scheduler.tasks.jms.queue.size=false\n scheduler.tasks.jms.queue.names=\n-#monitoring.queue.names=CadisMessage_OQ,CadisMessage_IQ,OutputManagement_IQ_ATSTR,ConverterMessage_OQ,OutputManagement_IQ_ATSTR,ConverterMessage_IQ,OutputDocumentManagement_OQ_ATSTR\n+#CadisMessage_OQ,CadisMessage_IQ,OutputManagement_IQ_ATSTR,ConverterMessage_OQ,OutputManagement_IQ_ATSTR,ConverterMessage_IQ,OutputDocumentManagement_OQ_ATSTR\n scheduler.tasks.jms.queue.names.ignore=TemporaryQueue\n \n-scheduler.tasks.deployments.names=\n+scheduler.tasks.deployments.names=_ALSB\n \n-#monitoring.details=true\n-\n+## Monitoring Migratable Targets\n # We define the preferred Server for the migratable targets. (max. 1000 mgts)\n-scheduler.tasks.migratabletarget.1.name=msgsvr_lueder_d1_1 (migratable)\n-scheduler.tasks.migratabletarget.1.preferredserver=msgsvr_lueder_d1_1\n-scheduler.tasks.migratabletarget.2.name=msgsvr_lueder_d1_2 (migratable)\n-scheduler.tasks.migratabletarget.2.preferredserver=msgsvr_lueder_d1_2\n+scheduler.tasks.migratabletarget.1.name=msgsvr_scn_t1_1 (migratable)\n+scheduler.tasks.migratabletarget.1.preferredserver=msgsvr_scn_t1_1\n+scheduler.tasks.migratabletarget.2.name=msgsvr_scn_t1_2 (migratable)\n+scheduler.tasks.migratabletarget.2.preferredserver=msgsvr_scn_t1_2\n+scheduler.tasks.migratabletarget.3.name=msgsvr_scn_t1_3 (migratable)\n+scheduler.tasks.migratabletarget.3.preferredserver=msgsvr_scn_t1_3\n+scheduler.tasks.migratabletarget.4.name=msgsvr_scn_t1_4 (migratable)\n+scheduler.tasks.migratabletarget.4.preferredserver=msgsvr_scn_t1_4\n"
+          },
+          "comment": "File /app/soa/domains/msgdomain_scn_f1/wlstmonitoring/monitoring.properties updated",
+          "name": "/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/monitoring.properties",
+          "result": true
+        },
+        "file_|-monitoring.sh_|-/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/monitoring.sh_|-managed": {
+          "__run_num__": 4,
+          "changes": {
+            "diff": "---  \n+++  \n@@ -1,9 +1,9 @@\n #!/bin/sh\n \n-JAVA_HOME=/opt/soajdk\n+JAVA_HOME=/app/soa/soajdk\n export JAVA_HOME\n \n-WL_HOME=/opt/middleware/wlserver_10.3\n+WL_HOME=/app/soa/mw_msgdomain_scn_f1/wlserver\n export WL_HOME\n \n PATH=${JAVA_HOME}/bin:$PATH\n@@ -26,14 +26,15 @@\n fi\n  \n if [ \"${CLASSPATH}\" = \"\" ] ; then\n-\tCLASSPATH=.:${JAVA_HOME}/lib/tools.jar:${WL_HOME}/server/lib/weblogic.jar:../lib/monitoring.jar:../lib/log4j.jar:../lib/jeromq.jar\n+\tCLASSPATH=.:${JAVA_HOME}/lib/tools.jar:${WL_HOME}/server/lib/weblogic.jar:../lib/monitoring_http.jar:../lib/log4j.jar:../lib/jeromq.jar\n else\n-\tCLASSPATH=.:${JAVA_HOME}/lib/tools.jar:${WL_HOME}/server/lib/weblogic.jar:../lib/monitoring.jar:../lib/log4j.jar:../lib/jeromq.jar:$CLASSPATH\n+\tCLASSPATH=.:${JAVA_HOME}/lib/tools.jar:${WL_HOME}/server/lib/weblogic.jar:../lib/monitoring_http.jar:../lib/log4j.jar:../lib/jeromq.jar:$CLASSPATH\n fi\n export CLASSPATH\n \n \n-WLST_PROPERTIES=\"-Dpython.path=$CURRDIR/wlst  -Dmonitoring.properties=$CURRDIR/monitoring.properties\"\n+# Properties fuer WLST\n+WLST_PROPERTIES=\"-Dmonitoring.properties=$CURRDIR/monitoring.properties\"\n export WLST_PROPERTIES\n \n # PATHs\n"
+          },
+          "comment": "File /app/soa/domains/msgdomain_scn_f1/wlstmonitoring/monitoring.sh updated",
+          "name": "/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/monitoring.sh",
+          "result": true
+        },
+        "file_|-monitoring_home_dir_|-/app/soa/domains/msgdomain_scn_f1/wlstmonitoring_|-directory": {
+          "__run_num__": 0,
+          "changes": {},
+          "comment": "Directory /app/soa/domains/msgdomain_scn_f1/wlstmonitoring is in the correct state",
+          "name": "/app/soa/domains/msgdomain_scn_f1/wlstmonitoring",
+          "result": true
+        },
+        "file_|-watchdog.sh_|-/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/watchdog.sh_|-managed": {
+          "__run_num__": 5,
+          "changes": {},
+          "comment": "File /app/soa/domains/msgdomain_scn_f1/wlstmonitoring/watchdog.sh is in the correct state",
+          "name": "/app/soa/domains/msgdomain_scn_f1/wlstmonitoring/watchdog.sh",
+          "result": true
+        }
+      },
+      "success": true
+    }
+  ]
+}

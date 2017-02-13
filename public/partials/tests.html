@@ -1,0 +1,366 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div id="tests" layout="column">
+
+  <div class="padding-side-8">
+    <div class="md-whiteframe-z1 round-corners margin-top-bottom-40">
+
+      <md-toolbar class="round-corners-top md-hue-1 z-1 cursor-pointer"
+                  ng-click="ctrl.isContentVisible = !ctrl.isContentVisible;">
+        <div class="md-toolbar-tools">
+          <h1>Klappbare Karte</h1>
+          <div flex></div>
+          <md-icon ng-show="!ctrl.isContentVisible" md-svg-icon="res/img/keyboard_arrow_down_white.svg"></md-icon>
+          <md-icon ng-show="ctrl.isContentVisible" md-svg-icon="res/img/keyboard_arrow_up_white.svg"></md-icon>
+        </div>
+      </md-toolbar>
+      <md-content ng-show="ctrl.isContentVisible" class="padding-side-8 animate-toggle">
+        <p>Hello</p>
+        <p>Whats up</p>
+        <p>This is DONE</p>
+      </md-content>
+
+    </div>
+  </div>
+
+  <md-content id="cards" ng-controller="ChartCtrl">
+    <div layout-wrap layout-xs="column" layout="row" layout-align="space-around stretch">
+
+      <md-card flex-gt-xs class="min-width-600">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Editor</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row">
+          <md-input-container class="md-block">
+            <label>Your html code</label>
+            <textarea ng-model="ctrl.code" cols="50"></textarea>
+          </md-input-container>
+          <div class="margin-left-40" ng-bind-html="ctrl.code">
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-400">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Hiding</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row">
+          <md-switch ng-model="showSwitch2" aria-label="Switch 1">
+            Show switch
+          </md-switch>
+          <md-switch ng-model="showPic" aria-label="Switch 2" ng-show="showSwitch2">
+            Show image
+          </md-switch>
+          <md-icon md-svg-icon="res/img/hand.svg"
+                   ng-show="showPic"
+                   ng-style="{'font-size': '48px', height: '58px'}"
+                   aria-label="test icon"></md-icon>
+        </md-card-content>
+      </md-card>
+
+
+      <!-- for debugging -->
+      <!--<pre style='clear:both; background-color: lightgray;'>{{hostChart|json}}</pre>-->
+
+
+      <md-card flex-gt-xs class="min-width-400">
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Pie Chart</span>
+            <span flex></span>
+            <md-menu md-position-mode="target-right target" style="padding: 0">
+              <md-button class="md-icon-button card-title-button" aria-label="Menu" ng-click="$mdOpenMenu($event)">
+                <md-icon md-menu-origin md-svg-icon="res/img/more_vert_black.svg"></md-icon>
+              </md-button>
+              <md-menu-content width="4">
+                <md-menu-item ng-repeat="item in [1, 2, 3]">
+                  <md-button ng-click="showDialog($event, 'body')">
+                    <div layout="row" flex>
+                      <p flex>Option {{item}}</p>
+                      <md-icon md-menu-align-target md-svg-icon="res/img/hand.svg"
+                               style="margin: auto 3px auto 0;"></md-icon>
+                    </div>
+                  </md-button>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div google-chart chart="pieChart">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-600">
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Line Chart</span>
+            <span flex></span>
+            <md-button class="md-icon-button card-title-button" aria-label="Info"
+                       ng-click="showHostChartDialog($event, 'body')">
+              <md-icon md-svg-icon="res/img/info_black.svg"></md-icon>
+            </md-button>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div google-chart chart="lineChart">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-400">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Bar Chart</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div google-chart chart="barChart">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-400">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Area Chart</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div google-chart chart="areaChart">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-400">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Column Chart</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div google-chart chart="columnChart">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-400">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Scatter Chart</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div google-chart chart="scatterChart">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-400">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Stepped Area Chart</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div google-chart chart="steppedAreaChart">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-400">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Donut Chart</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div google-chart chart="donutChart">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-300">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Medium</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-md card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-primary">Action 1</md-button>
+          <md-button class="md-primary">Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-300">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Small</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-icon-button" aria-label="Hand">
+            <md-icon md-svg-icon="res/img/hand.svg"></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" aria-label="Settings">
+            <md-icon md-svg-icon="res/img/menu.svg"></md-icon>
+          </md-button>
+        </md-card-actions>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-400">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Large</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-300">
+        <md-card-header>
+          <md-card-avatar>
+            <md-icon class="md-avatar-icon" md-svg-icon="res/img/smiley.svg"></md-icon>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">Title</span>
+            <span class="md-subhead">subhead</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-content>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+
+        </md-card-content>
+        <div flex></div>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-500">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card with image</span>
+            <span class="md-subhead">Extra Large</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+          <div class="md-media-xl card-media"></div>
+          <md-card-actions layout="column">
+            <md-button class="md-icon-button" aria-label="Hand">
+              <md-icon md-svg-icon="res/img/hand.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Settings">
+              <md-icon md-svg-icon="res/img/menu.svg"></md-icon>
+            </md-button>
+          </md-card-actions>
+        </md-card-content>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-300">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">In-card actions</span>
+            <span class="md-subhead">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam voluptua.
+            </span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+        <md-card-content>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+            et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+        </md-card-content>
+      </md-card>
+
+    </div>
+  </md-content>
+
+  <div style="margin: 50px; border: 1px solid grey; width:390px;">
+
+    <div layout="row" layout-align="start center">
+      <md-button class="md-raised">Button</md-button>
+      <md-button class="md-raised md-primary">Primary</md-button>
+      <md-button class="md-raised md-warn">Warn</md-button>
+      <md-button class="md-fab">
+        <md-icon md-svg-src="res/img/search_white.svg"></md-icon>
+      </md-button>
+    </div>
+    <div layout="column" class="padding-side-8">
+      <md-switch ng-model="active">
+        Switch: {{active}}
+      </md-switch>
+      <md-checkbox ng-model="checked" class="md-primary">
+        Checkbox: {{checked}}
+      </md-checkbox>
+    </div>
+  </div>
+
+  <md-button class="md-fab md-fab-bottom-right" aria-label="test" ng-click="showDialog($event, '#content')">
+    <md-icon md-svg-icon="res/img/smiley.svg"></md-icon>
+  </md-button>
+
+</div>
+
+</div>

@@ -1,0 +1,58 @@
+/*
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+Partly from: https://codyhouse.co/gem/css-breadcrumbs-and-multi-step-indicator/
+*/
+
+/* grey background */
+.breadcrumb {
+  padding: 0.5em 1em;
+  margin: 1em auto;
+  background-color: #E6EAEC; /* DB Silber hue A100 */
+  border-radius: .25em;
+}
+
+/* chevron as separator */
+.breadcrumb li::after {
+  display: inline-block;
+  margin: 0 0.6em;
+  content: '';
+  height: 16px;
+  width: 16px;
+  background: url(../img/chevron_right_black.svg) no-repeat center center;
+  vertical-align: middle;
+}
+
+/* for the height of the grey background */
+.breadcrumb:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* items below each other on mobile */
+@media (max-width: 600px) {
+  .breadcrumb li {
+    display: block;
+    margin: 0.5em 0;
+  }
+}
+
+/* items next to each other on desktop */
+@media (min-width: 600px) {
+  .breadcrumb li {
+    display: inline-block;
+    float: left;
+    margin: 0.5em 0;
+  }
+}
+
+/* hide separator after the last item */
+.breadcrumb li:last-of-type::after {
+  display: none;
+}
+
+/* remove the underline on the link */
+.breadcrumb li a {
+  text-decoration: none;
+}

@@ -1,0 +1,89 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div class="layout-padding">
+  <h1 class="md-display-1 layout-padding">
+    Impressum
+  </h1>
+
+  <p class="bold">
+    Paul Kunze <br>
+    Kurze Str. 5 <br>
+    10315 Berlin
+  </p>
+  <p>
+    Kontakt: mail[at]paulkunze[dot]de
+  </p>
+
+  <p>
+    Das Urheberrecht dieser Anwendung liegt bei Paul Kunze. Weitere Informationen dazu können auf
+    der Seite <a ui-sref="license">Lizenz</a> nachgelesen werden.<br>
+    Ich übernehme keine Haftung für auftretende Schäden jeder Art, die aus der Nutzung dieser Software resultieren.
+  </p>
+  <p>
+    Diese Software wurde im Sommer 2016 im Rahmen einer Masterarbeit an der Freien Universität Berlin entwickelt.
+    Kooperationspartner ist die DB Systel GmbH, eine Tochtergesellschaft der Deutschen Bahn.
+    Der vollständige Quelltext ist auf <a href="https://github.com/paulkunze/monigator">GitHub</a> verfügbar.
+  </p>
+
+  <md-content id="cards">
+    <div layout-wrap layout-xs="column" layout="row" layout-align="space-around stretch">
+
+      <md-card flex-gt-xs class="min-width-200">
+        <md-card-content flex>
+          <div class="center-text">
+            <img hide-gt-sm class="imprint-image" height="70px" src="res/img/fu_logo.svg">
+          </div>
+          <div layout="row">
+            <p class="bold margin-top-bottom-8" flex-gt-xs>
+              Freie Universität Berlin <br>
+              Kaiserswerther Str. 16/18 <br>
+              14195 Berlin
+            </p>
+            <div>
+              <img hide-xs hide-sm class="imprint-image" src="res/img/fu_logo.svg">
+            </div>
+          </div>
+          <p>
+            Die Freie Universität wird vertreten durch den Präsidenten, Prof. Dr. Peter-André Alt.
+          </p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end end">
+          <md-button ng-href="http://www.fu-berlin.de">
+            <md-icon class="color-icon" md-svg-icon="res/img/open_in_new_black.svg"></md-icon>
+            <span>fu-berlin.de</span>
+          </md-button>
+        </md-card-actions>
+      </md-card>
+
+      <md-card flex-gt-xs class="min-width-200">
+        <md-card-content flex>
+          <div class="center-text">
+            <img hide-gt-sm class="imprint-image" src="res/img/db_logo.svg">
+          </div>
+          <div layout="row">
+            <p class="bold margin-top-bottom-8" flex-gt-xs>
+              DB Systel GmbH <br>
+              Jürgen-Ponto-Platz 1 <br>
+              60329 Frankfurt am Main
+            </p>
+            <img hide-xs hide-sm class="imprint-image" src="res/img/db_logo.svg">
+          </div>
+          <p>
+            Die DB Systel GmbH wird vertreten durch die Geschäftsführung, diese vertreten durch Frau Christa Koenen
+            (Vorsitzende).
+          </p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end end">
+          <md-button ng-href="http://www.dbsystel.de">
+            <md-icon class="color-icon" md-svg-icon="res/img/open_in_new_black.svg"></md-icon>
+            <span>dbsystel.de</span>
+          </md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-content>
+
+</div>

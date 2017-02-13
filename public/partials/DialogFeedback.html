@@ -1,0 +1,23 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<md-dialog aria-label="Feedback dialog" class="max-width-dialog">
+  <md-dialog-content class="layout-padding">
+    <div class="md-headline">Feedback</div>
+    <div class="md-padding">
+      Für die Übermittlung von Fragen, Problemen, Verbesserungsvorschlägen, Hinweisen oder anderen Mitteilungen kann
+      eine E-Mail an mail@paulkunze.de gesendet werden.
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button ng-href="mailto:mail@paulkunze.de?subject=Feedback%20zu%20Monigator&body=Hallo%20Paul,%0D%0A%0D%0A..."
+               md-autofocus>
+      E-Mail schreiben
+    </md-button>
+    <md-button ng-click="closeDialog()">
+      Schließen
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

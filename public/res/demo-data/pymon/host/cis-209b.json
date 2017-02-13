@@ -1,0 +1,566 @@
+{
+    "QM.CIS": {
+        "BF.ADMIN.SVRCONN": {
+            "severity": 10
+        },
+        "CH.CCCHOSCI": {
+            "severity": 10
+        },
+        "CH.CIS.SWORD": {
+            "severity": 10
+        },
+        "CH.CISAP": {
+            "severity": 10
+        },
+        "CH.ESB": {
+            "severity": 10
+        },
+        "CH.SCINTILLA": {
+            "severity": 10
+        },
+        "CH.SWORD.CIS": {
+            "severity": 10
+        },
+        "CH.WEBCLAIMS": {
+            "severity": 10
+        },
+        "CH.WEBSPHERE": {
+            "severity": 10
+        },
+        "CH.WWWCLSCI": {
+            "severity": 10
+        },
+        "CISSCC.TEST": {
+            "severity": 10
+        },
+        "DLQ.QM.CIS": {
+            "severity": 10
+        },
+        "DQ.NC.CIS.BAX": {
+            "severity": 10
+        },
+        "DQ.TT.MQ_CIS": {
+            "severity": 10
+        },
+        "GabisQueue": {
+            "severity": 10
+        },
+        "LISTENER.TCP.1499": {
+            "severity": 10
+        },
+        "LQ.AW": {
+            "severity": 10
+        },
+        "LQ.BK.INPUT": {
+            "severity": 20
+        },
+        "LQ.BK.IN_CH": {
+            "severity": 10
+        },
+        "LQ.BK.IN_CIS": {
+            "severity": 10
+        },
+        "LQ.BK.OUTPUT": {
+            "severity": 10
+        },
+        "LQ.BK.OUT_CH": {
+            "severity": 10
+        },
+        "LQ.BL": {
+            "severity": 10
+        },
+        "LQ.CIS.AW": {
+            "severity": 10
+        },
+        "LQ.CIS.AW.DEFAULT": {
+            "severity": 10
+        },
+        "LQ.CIS.AW.LAND0": {
+            "severity": 10
+        },
+        "LQ.CIS.AW0": {
+            "severity": 30
+        },
+        "LQ.CIS.AW1": {
+            "severity": 30
+        },
+        "LQ.CIS.AW2": {
+            "severity": 30
+        },
+        "LQ.CIS.AW3": {
+            "severity": 30
+        },
+        "LQ.CIS.AW4": {
+            "severity": 30
+        },
+        "LQ.CIS.AW5": {
+            "severity": 10
+        },
+        "LQ.CIS.AW6": {
+            "severity": 10
+        },
+        "LQ.CIS.AW7": {
+            "severity": 10
+        },
+        "LQ.CIS.AW8": {
+            "severity": 10
+        },
+        "LQ.CIS.AW9": {
+            "severity": 10
+        },
+        "LQ.CIS.BL": {
+            "severity": 10
+        },
+        "LQ.CIS.BL.DEFAULT": {
+            "severity": 10
+        },
+        "LQ.CIS.BL0": {
+            "severity": 10
+        },
+        "LQ.CIS.BL1": {
+            "severity": 10
+        },
+        "LQ.CIS.BL2": {
+            "severity": 10
+        },
+        "LQ.CIS.BL3": {
+            "severity": 10
+        },
+        "LQ.CIS.BL4": {
+            "severity": 10
+        },
+        "LQ.CIS.BL5": {
+            "severity": 10
+        },
+        "LQ.CIS.BL6": {
+            "severity": 10
+        },
+        "LQ.CIS.BL7": {
+            "severity": 10
+        },
+        "LQ.CIS.BL8": {
+            "severity": 10
+        },
+        "LQ.CIS.BL9": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.DEADLETTER": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EMISSION": {
+            "severity": 30
+        },
+        "LQ.CIS.CISSCC.EV00": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVENTENTRY_CIS.EVNT": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT.DEFAULT": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT0": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT1": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT2": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT3": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT4": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT5": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT6": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT7": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT8": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.EVNT9": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.POE": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.TRIGGER": {
+            "severity": 10
+        },
+        "LQ.CIS.CISSCC.TRK": {
+            "severity": 10
+        },
+        "LQ.CIS.CUSTOMS_DATA.BREAKDOWN": {
+            "severity": 10
+        },
+        "LQ.CIS.CUSTOMS_DATA.SCC": {
+            "severity": 10
+        },
+        "LQ.CIS.EV00": {
+            "severity": 10
+        },
+        "LQ.CIS.EVNT": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT.DEFAULT": {
+            "severity": 10
+        },
+        "LQ.CIS.EVNT.LAND0": {
+            "severity": 10
+        },
+        "LQ.CIS.EVNT0": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT1": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT2": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT3": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT4": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT5": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT6": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT7": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT8": {
+            "severity": 30
+        },
+        "LQ.CIS.EVNT9": {
+            "severity": 30
+        },
+        "LQ.CIS.IN.DG": {
+            "severity": 10
+        },
+        "LQ.CIS.IN.SGI.CUSTOMS_DATA": {
+            "severity": 10
+        },
+        "LQ.CIS.IN.SGI.INVOICE": {
+            "severity": 10
+        },
+        "LQ.CIS.IN.SGI.SHIP_ADV": {
+            "severity": 10
+        },
+        "LQ.CIS.INDIVIDUAL.DEADLETTER": {
+            "severity": 10
+        },
+        "LQ.CIS.INDIVIDUAL.TRIGGER": {
+            "severity": 30
+        },
+        "LQ.CIS.POE": {
+            "severity": 10
+        },
+        "LQ.CIS.TANGODIST.AW": {
+            "severity": 10
+        },
+        "LQ.CIS.TANGODIST.BL": {
+            "severity": 10
+        },
+        "LQ.CIS.TGO.AWB": {
+            "severity": 10
+        },
+        "LQ.CIS.TGO.BLM": {
+            "severity": 10
+        },
+        "LQ.CIS.TRK": {
+            "severity": 10
+        },
+        "LQ.CIS2EDITOWER_CIS": {
+            "severity": 10
+        },
+        "LQ.CIS2EDITOWER_CIS_H1500": {
+            "severity": 10
+        },
+        "LQ.CIS2EDITOWER_CIS_H3010": {
+            "severity": 10
+        },
+        "LQ.CIS2EDITOWER_CIS_H5000": {
+            "severity": 10
+        },
+        "LQ.CIS2EDITOWER_CIS_H9CCD": {
+            "severity": 10
+        },
+        "LQ.CIS2EVENTENTRY_CIS.EVNT": {
+            "severity": 10
+        },
+        "LQ.CIS2_CIS.EVNT": {
+            "severity": 10
+        },
+        "LQ.CISMQ.TEST1": {
+            "severity": 10
+        },
+        "LQ.CISMQ.TEST2": {
+            "severity": 10
+        },
+        "LQ.CISMQ.TEST3": {
+            "severity": 10
+        },
+        "LQ.CISMQ.TEST4": {
+            "severity": 10
+        },
+        "LQ.CIS_CIS2EDITOWER.RECEIPT": {
+            "severity": 10
+        },
+        "LQ.CIS_CIS2EVENTENTRY.RECEIPT": {
+            "severity": 10
+        },
+        "LQ.DPO": {
+            "severity": 10
+        },
+        "LQ.EV00": {
+            "severity": 10
+        },
+        "LQ.EVNT": {
+            "severity": 10
+        },
+        "LQ.ILS.POD": {
+            "severity": 10
+        },
+        "LQ.ILS.PR": {
+            "severity": 10
+        },
+        "LQ.ILS.SH": {
+            "severity": 10
+        },
+        "LQ.ODM.WWWCL": {
+            "severity": 10
+        },
+        "LQ.PII": {
+            "severity": 10
+        },
+        "LQ.POE": {
+            "severity": 10
+        },
+        "LQ.POI": {
+            "severity": 10
+        },
+        "LQ.RQ_WS_BK": {
+            "severity": 10
+        },
+        "LQ.RQ_WS_CIS": {
+            "severity": 10
+        },
+        "LQ.RQ_WS_TK": {
+            "severity": 20
+        },
+        "LQ.SCC.CIS": {
+            "severity": 10
+        },
+        "LQ.SHS.BACKOUT": {
+            "severity": 10
+        },
+        "LQ.SHS.MQ_CTTS": {
+            "severity": 10
+        },
+        "LQ.SIMS.CCC": {
+            "severity": 10
+        },
+        "LQ.SIMS.WWWCL": {
+            "severity": 10
+        },
+        "LQ.TT.MQ_CIS": {
+            "severity": 10
+        },
+        "LQ.TT.MQ_CIS_EXT": {
+            "severity": 10
+        },
+        "LQ.TT.MQ_CIS_EXT_RQ": {
+            "severity": 10
+        },
+        "LQ.TT.MQ_CIS_RQ": {
+            "severity": 10
+        },
+        "LQ.TT.MQ_CTTS": {
+            "severity": 10
+        },
+        "LQ.TT.MQ_CTTS_EXT": {
+            "severity": 10
+        },
+        "LQ.WS.BK.RECEIVER": {
+            "severity": 10
+        },
+        "LQ.WS.BK.SENDER": {
+            "severity": 10
+        },
+        "LQ.WS.CIS2_REGISTER_CUSTOMER": {
+            "severity": 10
+        },
+        "LQ.WS.CIS2_REGISTER_CUSTOMER_RESULT": {
+            "severity": 10
+        },
+        "LQ.WS.TK.RECEIVER": {
+            "severity": 10
+        },
+        "LQ.WS.TK.SENDER": {
+            "severity": 10
+        },
+        "LQ.WWWCL.ODM": {
+            "severity": 10
+        },
+        "QM.CIS": {
+            "severity": 10
+        },
+        "QPASA.579631FF20014002": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.ACCOUNTING.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.ACTIVITY.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.CHANNEL.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.COMMAND.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.COMMAND.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.CONFIG.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.LOGGER.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.PERFM.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.QMGR.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.STATISTICS.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.TRACE.ROUTE.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.AUTH.DATA.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.BROKER.ADMIN.STREAM": {
+            "severity": 10
+        },
+        "SYSTEM.BROKER.CONTROL.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.BROKER.DEFAULT.STREAM": {
+            "severity": 10
+        },
+        "SYSTEM.BROKER.INTER.BROKER.COMMUNICATIONS": {
+            "severity": 10
+        },
+        "SYSTEM.CHANNEL.INITQ": {
+            "severity": 10
+        },
+        "SYSTEM.CHANNEL.SYNCQ": {
+            "severity": 10
+        },
+        "SYSTEM.CICS.INITIATION.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.CLUSTER.COMMAND.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.CLUSTER.HISTORY.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.CLUSTER.REPOSITORY.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.CLUSTER.TRANSMIT.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.DEAD.LETTER.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.DEFAULT.INITIATION.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.DEFAULT.LOCAL.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.DURABLE.SUBSCRIBER.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.HIERARCHY.STATE": {
+            "severity": 10
+        },
+        "SYSTEM.INTER.QMGR.CONTROL": {
+            "severity": 10
+        },
+        "SYSTEM.INTER.QMGR.FANREQ": {
+            "severity": 10
+        },
+        "SYSTEM.INTER.QMGR.PUBS": {
+            "severity": 10
+        },
+        "SYSTEM.INTERNAL.REPLY.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.PENDING.DATA.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.RETAINED.PUB.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.SELECTION.EVALUATION.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.SELECTION.VALIDATION.QUEUE": {
+            "severity": 10
+        },
+        "TCP/1414": {
+            "severity": 10
+        },
+        "TEST.IN": {
+            "severity": 10
+        },
+        "TEST.OUT": {
+            "severity": 10
+        },
+        "TEST.TEST": {
+            "severity": 10
+        },
+        "TEST2.OUT": {
+            "severity": 10
+        },
+        "XQ.MQT22": {
+            "severity": 10
+        },
+        "XQ.SWORD": {
+            "severity": 10
+        },
+        "blind.queue": {
+            "severity": 10
+        },
+        "severity": 30,
+        "test": {
+            "severity": 10
+        },
+        "test.booking": {
+            "severity": 10
+        }
+    }
+}

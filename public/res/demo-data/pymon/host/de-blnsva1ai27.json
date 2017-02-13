@@ -1,0 +1,14 @@
+{
+    "applmon_basbruecke": {
+        "cd": {
+            "severity": 30
+        },
+        "severity": 30
+    },
+    "servermon": {
+        "cpu": {
+            "severity": 10
+        },
+        "severity": 10
+    }
+}

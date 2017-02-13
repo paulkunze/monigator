@@ -1,0 +1,169 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div id="salt" layout="column" ng-init="ctrl.getSearchTermFromUrl()">
+
+  <form class="md-padding margin-padding-bottom-0"
+        ng-submit="ctrl.startSaltSearch()">
+    <div layout="row" layout-align="start start" class="padding-top-8">
+      <md-icon class="color-icon md-primary margin-8 padding-top-18" md-svg-icon="res/img/search_white.svg"></md-icon>
+      <md-autocomplete flex class="salt-searchField"
+                       md-selected-item="ctrl.selectedItem"
+                       md-search-text="ctrl.searchInput"
+                       md-items="item in ctrl.querySearch(ctrl.searchInput)"
+                       md-item-text="item"
+                       md-min-length="0"
+                       md-floating-label="Suche">
+        <md-item-template>
+          <span md-highlight-text="ctrl.searchInput" md-highlight-flags="^i">{{item}}</span>
+        </md-item-template>
+      </md-autocomplete>
+      <div class="padding-top-8">
+        <md-button class="md-primary md-raised" ng-click="ctrl.startSaltSearch()">
+          <span hide-xs>Suche starten</span>
+          <span hide-gt-xs>Suchen</span>
+        </md-button>
+      </div>
+    </div>
+  </form>
+
+  <md-content id="cards">
+    <div layout-wrap layout-xs="column" layout="row" layout-align="space-around stretch">
+      <md-card flex-gt-xs class="salt-card" ng-repeat="(minion, jobs) in ctrl.minionSearchResult">
+        <md-card-title class="flex-none">
+          <md-card-title-text>
+            <span class="md-headline">{{minion}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <div ng-repeat="job in jobs">
+            <div layout="row" class="margin-top-bottom-4">
+              <span class="md-title">{{job.fun}}</span>
+              <!-- success -->
+              <md-icon ng-if="job.success === true" md-svg-icon="res/img/check_circle_black.svg"
+                       class="md-avatar color-icon fill-green padding-side-8">
+              </md-icon>
+              <!-- no success -->
+              <md-icon ng-if="job.success === false" md-svg-icon="res/img/error_black.svg"
+                       class="md-avatar color-icon fill-red padding-side-8">
+              </md-icon>
+              <div flex></div>
+              {{job._stamp | date:'dd.MM.yyyy hh:mm:ss'}}
+              <div flex></div>
+            </div>
+          <table>
+            <tr class="divider-row">
+              <td>Erfolgreich:</td>
+              <td>{{job.success === true ? 'ja' : 'nein'}}</td>
+            </tr>
+            <tr>
+              <td>Argumente:</td>
+              <td>{{job.fun_args.toString()}}</td>
+            </tr>
+            <tr>
+            <td>Job ID:</td>
+            <td>{{job.jid}}</td>
+          </tr>
+          </table>
+            <md-divider ng-hide="$last" class="salt-card-divider"></md-divider>
+            </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-content>
+
+  <!--
+    <md-content id="cards">
+      <div layout-wrap layout-xs="column" layout="row" layout-align="space-around stretch">
+        <md-card id="{{ctrl.data.jid}}" flex-gt-xs class="min-width-500">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Job {{ctrl.data.jid}}</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td>
+                  {{ctrl.jidDescriptions.tgt_type}}
+                </td>
+                <td>
+                  {{ctrl.data.tgt_type}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ctrl.jidDescriptions.jid}}
+                </td>
+                <td>
+                  {{ctrl.data.jid}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ctrl.jidDescriptions.tgt}}
+                </td>
+                <td>
+                  {{ctrl.data.tgt}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ctrl.jidDescriptions.kwargs}}
+                </td>
+                <td>
+                  {{ctrl.data.kwargs}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ctrl.jidDescriptions.cmd}}
+                </td>
+                <td>
+                  {{ctrl.data.cmd}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ctrl.jidDescriptions.ret}}
+                </td>
+                <td>
+                  {{ctrl.data.ret}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ctrl.jidDescriptions.user}}
+                </td>
+                <td>
+                  {{ctrl.data.user}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ctrl.jidDescriptions.arg}}
+                </td>
+                <td>
+                  {{ctrl.data.arg}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{ctrl.jidDescriptions.fun}}
+                </td>
+                <td>
+                  {{ctrl.data.fun}}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </md-card-content>
+        </md-card>
+
+      </div>
+    </md-content>
+    -->
+</div>

@@ -1,0 +1,257 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div id="pymon_origin" class="overflow-none padding-side-8" ng-init="ctrl.getParameter()">
+
+  <div ncy-breadcrumb></div>
+
+  <h2 class="md-display-1">
+    Parameter {{ctrl.getParameterName()}}
+    <!-- OK/ Info -->
+    <md-icon ng-if="severityService.isSeverityInfo(ctrl.data.parameter.severity)"
+             md-svg-icon="res/img/check_circle_black.svg" class="margin-left-8 width-height-34 color-icon fill-green">
+    </md-icon>
+    <!-- Warning -->
+    <md-icon ng-if="severityService.isSeverityWarning(ctrl.data.parameter.severity)"
+             md-svg-icon="res/img/warning_black.svg" class="margin-left-8 width-height-34 color-icon fill-orange">
+    </md-icon>
+    <!-- Error -->
+    <md-icon
+        ng-if="severityService.isSeverityError(ctrl.data.parameter.severity)"
+        md-svg-icon="res/img/error_black.svg" class="margin-left-8 width-height-34 color-icon fill-red">
+    </md-icon>
+    <!-- None -->
+    <md-icon ng-if="severityService.isSeverityNone(ctrl.data.parameter.severity)"
+             md-svg-icon="res/img/help_outline_black.svg" class="margin-left-8 width-height-34 color-icon fill-grey">
+    </md-icon>
+  </h2>
+
+  <table class="table-padding larger-font">
+    <tbody>
+    <tr>
+      <td>
+        Wert:
+      </td>
+      <td>
+        {{ctrl.data.parameter.value}}
+      </td>
+    </tr>
+    <tr>
+      <td class="padding-bottom-16">
+        Nachricht:
+      </td>
+      <td class="padding-bottom-16">
+        {{ctrl.data.parameter.messagetext}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Nötige Checks bis zur Meldung:
+      </td>
+      <td>
+        {{ctrl.data.parameter.checksrequired}}
+      </td>
+    </tr>
+    <tr>
+      <td class="padding-bottom-16">
+        Checks:
+      </td>
+      <td class="padding-bottom-16">
+        {{ctrl.data.parameter.checkcount}}, gesamt {{ctrl.data.parameter.totalchecks}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Zeit:
+      </td>
+      <td>
+        {{ctrl.data.parameter.receivetime.split('.')[0]}}
+      </td>
+    </tr>
+    <tr>
+      <td class="padding-bottom-16">
+        Zustand seit:
+      </td>
+      <td class="padding-bottom-16">
+        {{ctrl.data.parameter.statussince.split('.')[0]}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        An Netcool senden:
+      </td>
+      <td>
+        {{getBooleanParameterString(ctrl.data.parameter.sendtonetcool)}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Netcool Bubble:
+      </td>
+      <td>
+        {{ctrl.data.parameter.netcoolbubble}}
+      </td>
+    </tr>
+    <tr>
+      <td class="padding-bottom-16">
+        E-Mail senden:
+      </td>
+      <td class="padding-bottom-16">
+        {{getBooleanParameterString(ctrl.data.parameter.sendemail)}}
+      </td>
+    </tr>
+    <tr>
+      <td class="padding-bottom-16">
+        Originalnachricht:
+      </td>
+      <td class="padding-bottom-16 word-break">
+        {{ctrl.data.parameter.originalmsg}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="md-whiteframe-z1 round-corners margin-top-bottom-40">
+    <md-toolbar class="round-corners-top md-hue-1 z-1 cursor-pointer"
+                ng-click="isEnvVisible = !isEnvVisible">
+      <div class="md-toolbar-tools">
+        <h1>Details zur Umgebung</h1>
+        <div flex></div>
+        <md-icon ng-show="!isEnvVisible" md-svg-icon="res/img/keyboard_arrow_down_white.svg"></md-icon>
+        <md-icon ng-show="isEnvVisible" md-svg-icon="res/img/keyboard_arrow_up_white.svg"></md-icon>
+      </div>
+    </md-toolbar>
+    <md-content ng-show="isEnvVisible" class="animate-toggle">
+      <table class="table-padding large-font md-padding">
+        <tbody>
+        <tr>
+          <td>
+            Anwendung:
+          </td>
+          <td>
+            {{ctrl.data.parameter.application_displayname}}
+            <span ng-if="ctrl.data.parameter.application != ''">({{ctrl.data.parameter.application}})</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Umgebung:
+          </td>
+          <td>
+            {{ctrl.data.parameter.environment}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Host:
+          </td>
+          <td>
+            {{ctrl.data.parameter.host}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Origin:
+          </td>
+          <td>
+            {{ctrl.data.parameter.origin}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Suborigin:
+          </td>
+          <td>
+            {{ctrl.data.parameter.suborigin}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </md-content>
+  </div>
+
+  <div class="md-whiteframe-z1 round-corners margin-top-bottom-40">
+    <md-toolbar class="round-corners-top md-hue-1 z-1 cursor-pointer"
+                ng-click="isProcessingVisible = !isProcessingVisible">
+      <div class="md-toolbar-tools">
+        <h1>Details zur Verarbeitung</h1>
+        <div flex></div>
+        <md-icon ng-show="!isProcessingVisible" md-svg-icon="res/img/keyboard_arrow_down_white.svg"></md-icon>
+        <md-icon ng-show="isProcessingVisible" md-svg-icon="res/img/keyboard_arrow_up_white.svg"></md-icon>
+      </div>
+    </md-toolbar>
+    <md-content ng-show="isProcessingVisible" class="animate-toggle">
+      <table class="table-padding large-font md-padding">
+        <tbody>
+        <tr>
+          <td>
+            Filter key:
+          </td>
+          <td>
+            {{ctrl.data.parameter.filterkey}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Angewandte Regeln:
+          </td>
+          <td>
+            {{getThresholdRulesString(ctrl.data.parameter.thresholdrules)}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Vorheriger Zustand:
+          </td>
+          <td>
+            {{ctrl.data.parameter.lastseverity}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Reason:
+          </td>
+          <td>
+            {{ctrl.data.parameter.reason}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rate conversion:
+          </td>
+          <td>
+            {{ctrl.data.parameter.rateconversion}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Check rewrite:
+          </td>
+          <td>
+            {{ctrl.data.parameter.checkrewrite}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clear:
+          </td>
+          <td>
+            {{ctrl.data.parameter.clear}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            UUID:
+          </td>
+          <td class="word-break">
+            {{ctrl.data.parameter.uuid}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </md-content>
+  </div>
+
+</div>

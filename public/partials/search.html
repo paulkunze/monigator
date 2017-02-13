@@ -1,0 +1,140 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div id="search" layout="column" ng-init="ctrl.startSearch()">
+
+  <form class="md-padding margin-top-20 margin-padding-bottom-0" layout="row"
+        ng-submit="ctrl.startSearch()">
+    <md-input-container class="md-block margin-8" layout="row" flex>
+      <md-icon class="color-icon md-primary" md-svg-icon="res/img/search_white.svg"></md-icon>
+      <input ng-model="searchInput.searchTerm" type="text" placeholder="Suche">
+    </md-input-container>
+    <div>
+      <md-button class="md-primary md-raised" ng-click="ctrl.startSearch()">
+        <span hide-xs>Suche starten</span>
+        <span hide-gt-xs>Suchen</span>
+      </md-button>
+    </div>
+  </form>
+
+  <md-content id="cards">
+    <div class="md-headline md-padding" ng-if="ctrl.pymonAppSearchResults.length > 0">Verfahren</div>
+    <div layout-wrap layout-xs="column" layout="row" layout-align="space-around stretch">
+
+      <md-card flex-gt-xs class="min-width-300" ng-class="{'min-width-300':(ctrl.getEnvCount(app) == 1),
+      'min-width-500':(ctrl.getEnvCount(app) == 2), 'min-width-600':(ctrl.getEnvCount(app) > 3)}"
+               ng-repeat="app in ctrl.pymonAppSearchResults">
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">{{app.name}}</span>
+            <div class="padding-4 margin-left-8">
+              <!-- OK/ Info -->
+              <md-icon ng-if="severityService.isSeverityInfo(app.severity)" md-svg-icon="res/img/check_circle_black.svg"
+                       class="md-avatar color-icon fill-green"></md-icon>
+              <!-- Warning -->
+              <md-icon ng-if="severityService.isSeverityWarning(app.severity)"
+                       md-svg-icon="res/img/warning_black.svg" class="md-avatar color-icon fill-orange"></md-icon>
+              <!-- Error -->
+              <md-icon
+                  ng-if="severityService.isSeverityError(app.severity)"
+                  md-svg-icon="res/img/error_black.svg" class="md-avatar color-icon fill-red"></md-icon>
+              <!-- None -->
+              <md-icon ng-if="severityService.isSeverityNone(app.severity)" md-svg-icon="res/img/help_outline_black.svg"
+                       class="md-avatar color-icon fill-grey"></md-icon>
+            </div>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" class="overflow-x">
+          <md-list class="padding-side-8" ng-repeat="env in app.envs | orderEnvironments:env:true"
+                   ng-if="env.name != undefined">
+            <div class="md-title margin-bottom-10">{{env.name}}</div>
+            <div class="search-hosts-list">
+              <md-list-item ng-repeat="host in env" ui-sref="pymon.host({hname:host.name})"
+                            class="pymon-list-item truncate-text" ng-if="host.name != undefined"
+                            ng-class="{'list-item-info': severityService.isSeverityInfo(host.severity),
+                          'list-item-warning': severityService.isSeverityWarning(host.severity),
+                          'list-item-error': severityService.isSeverityError(host.severity)}">
+                <p>{{host.name}}</p>
+              </md-list-item>
+            </div>
+          </md-list>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div class="md-headline md-padding" ng-if="ctrl.pymonHostSearchResults.length > 0">Hosts</div>
+    <div layout-wrap layout-xs="column" layout="row" layout-align="space-around stretch">
+      <md-card flex-gt-xs class="min-width-300" ng-repeat="host in ctrl.pymonHostSearchResults"
+               ng-class="{'list-item-info': severityService.isSeverityInfo(host.severity),
+               'list-item-warning': severityService.isSeverityWarning(host.severity),
+               'list-item-error': severityService.isSeverityError(host.severity)}">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{host.name}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <table class="search-results-table">
+            <tr>
+              <td>Severity:</td>
+              <td>{{severityService.getSeverityString(host.severity)}}</td>
+            </tr>
+            <tr>
+              <td>Supportlevel:</td>
+              <td>{{host.slevel}}</td>
+            </tr>
+            <tr class="divider-row">
+              <td>
+                <md-divider class="host-card-divider"></md-divider>
+              </td>
+            </tr>
+            <tr>
+              <td>Salt-Minion:</td>
+              <td>{{host.minion}}</td>
+            </tr>
+            <tr>
+              <td>Letzte Salt-Funktion:</td>
+              <td>{{host.saltFunc}}</td>
+            </tr>
+            <tr class="divider-row">
+              <td>
+                <md-divider class="host-card-divider"></md-divider>
+              </td>
+            </tr>
+            <tr>
+              <td>Letzter Patchday:</td>
+              <td>{{host.prevPatchday}}</td>
+            </tr>
+            <tr>
+              <td>Nächster Patchday:</td>
+              <td>{{host.patchday}}</td>
+            </tr>
+            <tr>
+              <td>Patchday-Change:</td>
+              <td>
+                <a ng-href="{{pscChangePath + host.change}}"
+                   ng-if="host.change != 'unbekannt' && host.change != '(Fehler)'">{{host.change}}</a>
+                <span ng-if="host.change === 'unbekannt' || host.change === '(Fehler)'">unbekannt</span>
+              </td>
+            </tr>
+          </table>
+        </md-card-content>
+        <md-card-actions layout="column" layout-align="end start">
+          <div class="md-title padding-side-8">Anzeigen in:</div>
+          <div layout="row">
+            <md-button ng-click="switchPageService.goToPymonHost(host.name)">Pymon</md-button>
+            <md-button ng-disabled="host.minion === 'keiner' || host.minion === '(Fehler)'"
+                       ng-click="switchPageService.goToSalt(host.minion)">Salt
+            </md-button>
+            <md-button ng-disabled="host.patchday === 'kein Patch geplant' || host.patchday === '(Fehler)'"
+                       ng-click="switchPageService.goToPatchday(host.patchday)">Kalender
+            </md-button>
+          </div>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-content>
+
+</div>

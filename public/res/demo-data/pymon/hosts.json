@@ -1,0 +1,275 @@
+{
+    "archivie-100b": {
+        "severity": 10
+    },
+    "archivie-200b": {
+        "severity": 20
+    },
+    "archivie-201b": {
+        "severity": 10
+    },
+    "blnsrbf024.dbsystems.db.de": {
+        "severity": 10
+    },
+    "blnsrd11195": {
+        "severity": 10
+    },
+    "blnsva11075": {
+        "severity": 10
+    },
+    "blnsva11076": {
+        "severity": 10
+    },
+    "cis-207b": {
+        "severity": 10
+    },
+    "cis-209b": {
+        "severity": 30
+    },
+    "cis-app-1": {
+        "severity": 10
+    },
+    "de-blnsva11000": {
+        "severity": 10
+    },
+    "de-blnsva11001": {
+        "severity": 10
+    },
+    "de-blnsva1ac01": {
+        "severity": 10
+    },
+    "de-blnsva1ai11": {
+        "severity": 10
+    },
+    "de-blnsva1ai16": {
+        "severity": 10
+    },
+    "de-blnsva1ai22": {
+        "severity": 10
+    },
+    "de-ffmsva63002": {
+        "severity": 10
+    },
+    "de-ffmsva63003": {
+        "severity": 20
+    },
+    "detroit": {
+        "severity": 10
+    },
+    "dreieich": {
+        "severity": 10
+    },
+    "dsazentr-103v": {
+        "severity": 10
+    },
+    "dsazentr-104v": {
+        "severity": 10
+    },
+    "dsazentr-203v": {
+        "severity": 20
+    },
+    "dsazentr-208v": {
+        "severity": 20
+    },
+    "dsazentr-209v": {
+        "severity": 10
+    },
+    "ffmsva63251": {
+        "severity": 20
+    },
+    "ffmsva63252": {
+        "severity": 20
+    },
+    "ffmsva63255": {
+        "severity": 20
+    },
+    "ffmsva63256": {
+        "severity": 20
+    },
+    "ffmsva63257": {
+        "severity": 10
+    },
+    "ffmsva63258": {
+        "severity": 20
+    },
+    "ffmsva63262": {
+        "severity": 10
+    },
+    "ffmsva63299": {
+        "severity": 10
+    },
+    "ffmsva663298": {
+        "severity": 10
+    },
+    "fkfmip-101v": {
+        "severity": 10
+    },
+    "fkfmip-102v": {
+        "severity": 10
+    },
+    "fkfmip-201v": {
+        "severity": 10
+    },
+    "fkfmip-202v": {
+        "severity": 10
+    },
+    "fkfmip-204v": {
+        "severity": 10
+    },
+    "florenz020": {
+        "severity": 10
+    },
+    "indulang": {
+        "severity": 20
+    },
+    "ipubi": {
+        "severity": 20
+    },
+    "ironton": {
+        "severity": 10
+    },
+    "izmir": {
+        "severity": 10
+    },
+    "kakamega": {
+        "severity": 10
+    },
+    "kuss-100d-mq": {
+        "severity": 10
+    },
+    "kuss-204b": {
+        "severity": 10
+    },
+    "kuss-205b": {
+        "severity": 10
+    },
+    "lsolso-201v": {
+        "severity": 10
+    },
+    "ma22001-19": {
+        "severity": 30
+    },
+    "ma24329-3": {
+        "severity": 30
+    },
+    "mendhausen": {
+        "severity": 10
+    },
+    "msmwt1": {
+        "severity": 10
+    },
+    "mvs4": {
+        "severity": 30
+    },
+    "naha": {
+        "severity": 10
+    },
+    "narubad": {
+        "severity": 10
+    },
+    "nettelsee": {
+        "severity": 10
+    },
+    "neudenau": {
+        "severity": 20
+    },
+    "neuffen": {
+        "severity": 10
+    },
+    "pacet": {
+        "severity": 10
+    },
+    "palembang": {
+        "severity": 10
+    },
+    "palu": {
+        "severity": 10
+    },
+    "pathein": {
+        "severity": 10
+    },
+    "patillas": {
+        "severity": 10
+    },
+    "pearl": {
+        "severity": 30
+    },
+    "peoria": {
+        "severity": 10
+    },
+    "pilsen": {
+        "severity": 10
+    },
+    "pinchote0": {
+        "severity": 10
+    },
+    "pockau": {
+        "severity": 10
+    },
+    "pocking": {
+        "severity": 10
+    },
+    "polkowice": {
+        "severity": 10
+    },
+    "polomolok": {
+        "severity": 10
+    },
+    "ponce": {
+        "severity": 10
+    },
+    "ponitz": {
+        "severity": 10
+    },
+    "popondetta": {
+        "severity": 10
+    },
+    "portalegre": {
+        "severity": 10
+    },
+    "pritzwalk": {
+        "severity": 10
+    },
+    "putzbrunn": {
+        "severity": 10
+    },
+    "puyang": {
+        "severity": 10
+    },
+    "sadovo": {
+        "severity": 10
+    },
+    "saltnes": {
+        "severity": 10
+    },
+    "samea": {
+        "severity": 10
+    },
+    "selscheid": {
+        "severity": 10
+    },
+    "siebenlehn": {
+        "severity": 10
+    },
+    "smolensk": {
+        "severity": 10
+    },
+    "sonlez": {
+        "severity": 10
+    },
+    "valdosta": {
+        "severity": 10
+    },
+    "varanasi": {
+        "severity": 10
+    },
+    "vellmar": {
+        "severity": 10
+    },
+    "vinales": {
+        "severity": 10
+    },
+    "woronesch": {
+        "severity": 10
+    }
+}

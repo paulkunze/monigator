@@ -1,0 +1,999 @@
+{
+  "20160913141246873696": [
+    {
+      "soa@schwebach": {
+        "_stamp": "2016-09-13T12:20:03.614970",
+        "cmd": "_return",
+        "fun": "state.sls",
+        "fun_args": [
+          "apps.scintilla.esbdomain.__create__",
+          {
+            "__kwarg__": true,
+            "pillar": {
+              "DomainNameKey": "esbdomain_scn_d1"
+            }
+          }
+        ],
+        "id": "soa@schwebach",
+        "jid": "20160913141246873696",
+        "out": "highstate",
+        "retcode": 2,
+        "return": {
+          "cmd_|-domainhealth.init deploy_domainhealth_|-. /app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/bin/setWLSEnv.sh; /app/soa/soajdk-osb/bin/java weblogic.Deployer -adminurl t3://schwebach-scintilla-a1.linux.rz.db.de:7357 -username system -password 2dev4slesb! -redeploy -name domainhealth-110.war -source /app/soa/tmp/domainhealth-110.war -targets admosb_scn_d1_|-run": {
+            "__run_num__": 97,
+            "_stamp": "2016-09-13T12:20:03.616889",
+            "changes": {
+              "pid": 27265,
+              "retcode": 1,
+              "stderr": "javax.enterprise.deploy.spi.exceptions.DeploymentManagerCreationException\n\tat weblogic.deploy.api.spi.deploy.WebLogicDeploymentManagerImpl.<init>(WebLogicDeploymentManagerImpl.java:133)\n\tat weblogic.deploy.api.spi.factories.internal.DeploymentFactoryImpl.getDeploymentManager(DeploymentFactoryImpl.java:86)\n\tat weblogic.deploy.api.tools.SessionHelper.getDeploymentManager(SessionHelper.java:446)\n\tat weblogic.deploy.api.tools.deployer.Jsr88Operation.connect(Jsr88Operation.java:304)\n\tat weblogic.deploy.api.tools.deployer.Deployer.perform(Deployer.java:137)\n\tat weblogic.deploy.api.tools.deployer.Deployer.runBody(Deployer.java:88)\n\tat weblogic.utils.compiler.Tool.run(Tool.java:158)\n\tat weblogic.utils.compiler.Tool.run(Tool.java:115)\n\tat weblogic.Deployer.run(Deployer.java:70)\n\tat weblogic.Deployer.main(Deployer.java:54)\nCaused by: weblogic.deploy.api.spi.exceptions.ServerConnectionException\n\tat weblogic.deploy.api.spi.deploy.internal.ServerConnectionImpl.init(ServerConnectionImpl.java:141)\n\tat weblogic.deploy.api.spi.deploy.WebLogicDeploymentManagerImpl.getNewConnection(WebLogicDeploymentManagerImpl.java:160)\n\tat weblogic.deploy.api.spi.deploy.WebLogicDeploymentManagerImpl.<init>(WebLogicDeploymentManagerImpl.java:130)\n\t... 9 more\nCaused by: javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://schwebach-scintilla-a1.linux.rz.db.de:7357: Destination unreachable; nested exception is: \n\tjava.net.ConnectException: Connection refused; No available router to destination]\n\tat weblogic.jndi.internal.ExceptionTranslator.toNamingException(ExceptionTranslator.java:40)\n\tat weblogic.jndi.WLInitialContextFactoryDelegate.toNamingException(WLInitialContextFactoryDelegate.java:792)\n\tat weblogic.jndi.WLInitialContextFactoryDelegate.getInitialContext(WLInitialContextFactoryDelegate.java:366)\n\tat weblogic.jndi.Environment.getContext(Environment.java:315)\n\tat weblogic.jndi.Environment.getContext(Environment.java:285)\n\tat weblogic.jndi.Environment.createInitialContext(Environment.java:208)\n\tat weblogic.jndi.Environment.getInitialContext(Environment.java:192)\n\tat weblogic.jndi.Environment.getInitialContext(Environment.java:170)\n\tat weblogic.deploy.api.spi.deploy.internal.ServerConnectionImpl.getContext(ServerConnectionImpl.java:328)\n\tat weblogic.deploy.api.spi.deploy.internal.ServerConnectionImpl.getEnvironment(ServerConnectionImpl.java:300)\n\tat weblogic.deploy.api.spi.deploy.internal.ServerConnectionImpl.init(ServerConnectionImpl.java:139)\n\t... 11 more\nCaused by: java.net.ConnectException: t3://schwebach-scintilla-a1.linux.rz.db.de:7357: Destination unreachable; nested exception is: \n\tjava.net.ConnectException: Connection refused; No available router to destination\n\tat weblogic.rjvm.RJVMFinder.findOrCreateInternal(RJVMFinder.java:216)\n\tat weblogic.rjvm.RJVMFinder.findOrCreate(RJVMFinder.java:170)\n\tat weblogic.rjvm.ServerURL.findOrCreateRJVM(ServerURL.java:165)\n\tat weblogic.jndi.WLInitialContextFactoryDelegate$1.run(WLInitialContextFactoryDelegate.java:345)\n\tat weblogic.security.acl.internal.AuthenticatedSubject.doAs(AuthenticatedSubject.java:363)\n\tat weblogic.security.service.SecurityManager.runAs(SecurityManager.java:146)\n\tat weblogic.jndi.WLInitialContextFactoryDelegate.getInitialContext(WLInitialContextFactoryDelegate.java:340)\n\t... 19 more\nCaused by: java.rmi.ConnectException: Destination unreachable; nested exception is: \n\tjava.net.ConnectException: Connection refused; No available router to destination\n\tat weblogic.rjvm.ConnectionManager.bootstrap(ConnectionManager.java:470)\n\tat weblogic.rjvm.ConnectionManager.bootstrap(ConnectionManager.java:321)\n\tat weblogic.rjvm.RJVMManager.findOrCreateRemoteInternal(RJVMManager.java:262)\n\tat weblogic.rjvm.RJVMManager.findOrCreate(RJVMManager.java:199)\n\tat weblogic.rjvm.RJVMFinder.findOrCreateRemoteServer(RJVMFinder.java:238)\n\tat weblogic.rjvm.RJVMFinder.findOrCreateInternal(RJVMFinder.java:200)\n\t... 25 more",
+              "stdout": "CLASSPATH=/app/soa/mw_esbdomain_scn_d1/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/app/soa/mw_esbdomain_scn_d1/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/app/soa/soajdk-osb/lib/tools.jar:/app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/lib/weblogic_sp.jar:/app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/lib/weblogic.jar:/app/soa/mw_esbdomain_scn_d1/modules/features/weblogic.server.modules_10.3.6.0.jar:/app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/lib/webservices.jar:/app/soa/mw_esbdomain_scn_d1/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/app/soa/mw_esbdomain_scn_d1/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:/app/soa/install/esbdomain_scn_d1/lib/log4j.jar:/app/soa/install/esbdomain_scn_d1/lib/snakeyaml-1.13.jar:/app/soa/install/esbdomain_scn_d1/lib/YamlParser-1.0.jar\n\nPATH=/app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/bin:/app/soa/mw_esbdomain_scn_d1/modules/org.apache.ant_1.7.1/bin:/app/soa/soajdk-osb/jre/bin:/app/soa/soajdk-osb/bin:/app/soa/soajdk/bin:/app/soa/soajdk/bin:/home/soa/bin/:/home/soa/bin:/usr/global/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/usr/lib64/jvm/jre/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/opt/soajdk/bin:/app/soa/tools/autoinstaller-1.0.1/bin:/opt/middleware/apache-ant-1.8.4/bin:/home/soa/bin:/home/soa/bin:/app/soa/install/msgdomain_scn_d1/logstash/bin:/opt/middleware/apache-ant-1.8.4/bin:/home/soa/bin:/home/soa/bin:/app/soa/install/msgdomain_scn_d1/logstash/bin:/app/soa/mw_esbdomain_scn_d1/osb_11.1/OPatch:/app/soa/soajdk-osb:/bin:/app/soa/mw_esbdomain_scn_d1/osb_11.1/OPatch:/app/soa/soajdk-osb:/bin\n\nYour environment has been set.\nweblogic.Deployer invoked with options:  -adminurl t3://schwebach-scintilla-a1.linux.rz.db.de:7357 -username system -redeploy -name domainhealth-110.war -source /app/soa/tmp/domainhealth-110.war -targets admosb_scn_d1\nUnable to connect to 't3://schwebach-scintilla-a1.linux.rz.db.de:7357': Destination unreachable; nested exception is: \n\tjava.net.ConnectException: Connection refused; No available router to destination. Ensure the url represents a running admin server and that the credentials are correct. If using http protocol, tunneling must be enabled on the admin server."
+            },
+            "comment": "Command \". /app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/bin/setWLSEnv.sh; /app/soa/soajdk-osb/bin/java weblogic.Deployer -adminurl t3://schwebach-scintilla-a1.linux.rz.db.de:7357 -username system -password 2dev4slesb! -redeploy -name domainhealth-110.war -source /app/soa/tmp/domainhealth-110.war -targets admosb_scn_d1\" run",
+            "fun": "state.sls",
+            "id": "soa@schwebach",
+            "jid": "20160913141246873696",
+            "name": ". /app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/bin/setWLSEnv.sh; /app/soa/soajdk-osb/bin/java weblogic.Deployer -adminurl t3://schwebach-scintilla-a1.linux.rz.db.de:7357 -username system -password 2dev4slesb! -redeploy -name domainhealth-110.war -source /app/soa/tmp/domainhealth-110.war -targets admosb_scn_d1",
+            "result": false,
+            "retcode": 2,
+            "return": "Error: cmd.run",
+            "success": false
+          },
+          "cmd_|-osb11.template repack_template_|-/app/soa/soajdk-osb/bin/jar uvf scriptedwlsb.jar config-groups.xml_|-run": {
+            "__run_num__": 22,
+            "changes": {
+              "pid": 11080,
+              "retcode": 0,
+              "stderr": "",
+              "stdout": "adding: config-groups.xml(in = 5782) (out= 737)(deflated 87%)"
+            },
+            "comment": "Command \"/app/soa/soajdk-osb/bin/jar uvf scriptedwlsb.jar config-groups.xml\" run",
+            "name": "/app/soa/soajdk-osb/bin/jar uvf scriptedwlsb.jar config-groups.xml",
+            "result": true
+          },
+          "cmd_|-soajdk.init check java version file_|-rm -rf /app/soa/soajdk-osb_|-run": {
+            "__run_num__": 6,
+            "changes": {},
+            "comment": "unless execution succeeded",
+            "name": "rm -rf /app/soa/soajdk-osb",
+            "result": true
+          },
+          "cmd_|-soajdk.init extract jdk tar_|-tar xvfz jdk_17u75.tgz_|-run": {
+            "__run_num__": 10,
+            "changes": {},
+            "comment": "unless execution succeeded",
+            "name": "tar xvfz jdk_17u75.tgz",
+            "result": true
+          },
+          "cmd_|-testhttp.init deploy_testhttp_|-. /app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/bin/setWLSEnv.sh; /app/soa/soajdk-osb/bin/java weblogic.Deployer -adminurl t3://schwebach-scintilla-a1.linux.rz.db.de:7357 -username system -password 2dev4slesb! -redeploy -name testHttp.war -source /app/soa/tmp/testHttp.war -targets admosb_scn_d1,esbcluster_scn_d1_|-run": {
+            "__run_num__": 90,
+            "changes": {
+              "pid": 24426,
+              "retcode": 0,
+              "stderr": "",
+              "stdout": "CLASSPATH=/app/soa/mw_esbdomain_scn_d1/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/app/soa/mw_esbdomain_scn_d1/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/app/soa/soajdk-osb/lib/tools.jar:/app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/lib/weblogic_sp.jar:/app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/lib/weblogic.jar:/app/soa/mw_esbdomain_scn_d1/modules/features/weblogic.server.modules_10.3.6.0.jar:/app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/lib/webservices.jar:/app/soa/mw_esbdomain_scn_d1/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/app/soa/mw_esbdomain_scn_d1/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:/app/soa/install/esbdomain_scn_d1/lib/log4j.jar:/app/soa/install/esbdomain_scn_d1/lib/snakeyaml-1.13.jar:/app/soa/install/esbdomain_scn_d1/lib/YamlParser-1.0.jar\n\nPATH=/app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/bin:/app/soa/mw_esbdomain_scn_d1/modules/org.apache.ant_1.7.1/bin:/app/soa/soajdk-osb/jre/bin:/app/soa/soajdk-osb/bin:/app/soa/soajdk/bin:/app/soa/soajdk/bin:/home/soa/bin/:/home/soa/bin:/usr/global/bin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/usr/lib64/jvm/jre/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin:/opt/soajdk/bin:/app/soa/tools/autoinstaller-1.0.1/bin:/opt/middleware/apache-ant-1.8.4/bin:/home/soa/bin:/home/soa/bin:/app/soa/install/msgdomain_scn_d1/logstash/bin:/opt/middleware/apache-ant-1.8.4/bin:/home/soa/bin:/home/soa/bin:/app/soa/install/msgdomain_scn_d1/logstash/bin:/app/soa/mw_esbdomain_scn_d1/osb_11.1/OPatch:/app/soa/soajdk-osb:/bin:/app/soa/mw_esbdomain_scn_d1/osb_11.1/OPatch:/app/soa/soajdk-osb:/bin\n\nYour environment has been set.\nweblogic.Deployer invoked with options:  -adminurl t3://schwebach-scintilla-a1.linux.rz.db.de:7357 -username system -redeploy -name testHttp.war -source /app/soa/tmp/testHttp.war -targets admosb_scn_d1,esbcluster_scn_d1\n<Sep 13, 2016 2:18:53 PM CEST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, testHttp.war [archive: /app/soa/tmp/testHttp.war], to admosb_scn_d1 esbcluster_scn_d1 .> \nTask 0 initiated: [Deployer:149026]deploy application testHttp.war on esbcluster_scn_d1,admosb_scn_d1.\nTask 0 deferred: [Deployer:149026]deploy application testHttp.war on esbcluster_scn_d1,admosb_scn_d1.\nTarget state: redeploy deferred on Cluster esbcluster_scn_d1\njava.rmi.RemoteException: [Deployer:149145]Unable to contact 'esbsvr_scn_d1_2'. Deployment is deferred until 'esbsvr_scn_d1_2' becomes available.\n\njava.rmi.RemoteException: [Deployer:149145]Unable to contact 'esbsvr_scn_d1_1'. Deployment is deferred until 'esbsvr_scn_d1_1' becomes available.\n\nTarget state: redeploy completed on Server admosb_scn_d1"
+            },
+            "comment": "Command \". /app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/bin/setWLSEnv.sh; /app/soa/soajdk-osb/bin/java weblogic.Deployer -adminurl t3://schwebach-scintilla-a1.linux.rz.db.de:7357 -username system -password 2dev4slesb! -redeploy -name testHttp.war -source /app/soa/tmp/testHttp.war -targets admosb_scn_d1,esbcluster_scn_d1\" run",
+            "name": ". /app/soa/mw_esbdomain_scn_d1/wlserver_10.3/server/bin/setWLSEnv.sh; /app/soa/soajdk-osb/bin/java weblogic.Deployer -adminurl t3://schwebach-scintilla-a1.linux.rz.db.de:7357 -username system -password 2dev4slesb! -redeploy -name testHttp.war -source /app/soa/tmp/testHttp.war -targets admosb_scn_d1,esbcluster_scn_d1",
+            "result": true
+          },
+          "cmd_|-wlsdomain.rda unzip rda.zip_|-unzip -o rda.zip_|-run": {
+            "__run_num__": 49,
+            "changes": {},
+            "comment": "unless execution succeeded",
+            "name": "unzip -o rda.zip",
+            "result": true,
+            "retcode": 2
+          },
+          "cmd_|-wlsproject.nodemanager restart nodemanager_|-./nodemanager.sh restart_|-wait": {
+            "__run_num__": 37,
+            "changes": {
+              "pid": 11231,
+              "retcode": 0,
+              "stderr": "",
+              "stdout": "Running in NORMAL Mode.\nstop called \nstart called \nNodemanger startet with cmd = nohup /app/soa/domains/esbdomain_scn_d1_nodemanager/startNodeManager.sh > /app/soa/domains/esbdomain_scn_d1_nodemanager/nodemanager.out 2>&1 & \nstatus called \nPID   RUNNINGTIME     CMD \n11314\t0 mins\t/app/soa/domains/esbdomain_scn_d1_nodemanager\t\nstatus called \nPID   RUNNINGTIME     CMD \n11314\t0 mins\t/app/soa/domains/esbdomain_scn_d1_nodemanager"
+            },
+            "comment": "Command \"./nodemanager.sh restart\" run",
+            "name": "./nodemanager.sh restart",
+            "result": true
+          },
+          "file_|-/app/soa/install/esbdomain_scn_d1/../.domains_|-/app/soa/install/esbdomain_scn_d1/../.domains_|-append": {
+            "__run_num__": 53,
+            "changes": {},
+            "comment": "Appended 0 lines",
+            "name": "/app/soa/install/esbdomain_scn_d1/../.domains",
+            "result": true
+          },
+          "file_|-/home/soa/.profile_|-/home/soa/.profile_|-append": {
+            "__run_num__": 47,
+            "changes": {},
+            "comment": "Appended 0 lines",
+            "name": "/home/soa/.profile",
+            "result": true
+          },
+          "file_|-copy TimerListener lib_|-/app/soa/domains/esbdomain_scn_d1/lib/TimerListener_v3.5.2.jar_|-managed": {
+            "__run_num__": 87,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/TimerListener_v3.5.2.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/TimerListener_v3.5.2.jar",
+            "result": true
+          },
+          "file_|-copy TimerListener props_|-/app/soa/domains/esbdomain_scn_d1/lib/TimerListener.properties_|-managed": {
+            "__run_num__": 88,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/TimerListener.properties updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/TimerListener.properties",
+            "result": true
+          },
+          "file_|-copy jdbc libs_|-/app/soa/domains/esbdomain_scn_d1/lib_|-recurse": {
+            "__run_num__": 86,
+            "changes": {
+              "/app/soa/domains/esbdomain_scn_d1/lib/db2jcc4.jar": {
+                "diff": "New file",
+                "mode": "0644"
+              },
+              "/app/soa/domains/esbdomain_scn_d1/lib/db2jcc_license_cisuz.jar": {
+                "diff": "New file",
+                "mode": "0644"
+              },
+              "/app/soa/domains/esbdomain_scn_d1/lib/sqljdbc4.jar": {
+                "diff": "New file",
+                "mode": "0644"
+              },
+              "/app/soa/domains/esbdomain_scn_d1/lib/sqljdbc41.jar": {
+                "diff": "New file",
+                "mode": "0644"
+              }
+            },
+            "comment": "Recursively updated /app/soa/domains/esbdomain_scn_d1/lib",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-copy log4j.properties_|-/app/soa/domains/esbdomain_scn_d1/log4j.properties_|-managed": {
+            "__run_num__": 85,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/log4j.properties updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/log4j.properties",
+            "result": true
+          },
+          "file_|-copy talo libs_|-/app/soa/domains/esbdomain_scn_d1/lib_|-recurse": {
+            "__run_num__": 82,
+            "changes": {
+              "/app/soa/domains/esbdomain_scn_d1/lib/talo-generator-3.3.0.jar": {
+                "diff": "New file",
+                "mode": "0644"
+              },
+              "/app/soa/domains/esbdomain_scn_d1/lib/talo-java-3.3.0.jar": {
+                "diff": "New file",
+                "mode": "0644"
+              },
+              "/app/soa/domains/esbdomain_scn_d1/lib/talo-osb-java-3.3.1.jar": {
+                "diff": "New file",
+                "mode": "0644"
+              }
+            },
+            "comment": "Recursively updated /app/soa/domains/esbdomain_scn_d1/lib",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib",
+            "result": true
+          },
+          "file_|-copy talo xml config_|-/app/soa/domains/esbdomain_scn_d1_|-recurse": {
+            "__run_num__": 83,
+            "changes": {
+              "/app/soa/domains/esbdomain_scn_d1/CoreFilters.xml": {
+                "diff": "New file",
+                "mode": "0644"
+              },
+              "/app/soa/domains/esbdomain_scn_d1/OSBCatalog.xml": {
+                "diff": "New file",
+                "mode": "0644"
+              },
+              "/app/soa/domains/esbdomain_scn_d1/OSBFilters.xml": {
+                "diff": "New file",
+                "mode": "0644"
+              }
+            },
+            "comment": "Recursively updated /app/soa/domains/esbdomain_scn_d1",
+            "name": "/app/soa/domains/esbdomain_scn_d1",
+            "result": true
+          },
+          "file_|-copy talo3.properties_|-/app/soa/domains/esbdomain_scn_d1/talo3.properties_|-managed": {
+            "__run_num__": 84,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/talo3.properties updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/talo3.properties",
+            "result": true
+          },
+          "file_|-domainhealth.init download_dh_war_|-/app/soa/tmp/domainhealth-110.war_|-managed": {
+            "__run_num__": 95,
+            "changes": {},
+            "comment": "File /app/soa/tmp/domainhealth-110.war is in the correct state",
+            "name": "/app/soa/tmp/domainhealth-110.war",
+            "result": true
+          },
+          "file_|-domainhealth.init download_ms_lib_|-/app/soa/domains/esbdomain_scn_d1/lib/sigar.jar_|-managed": {
+            "__run_num__": 92,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/sigar.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/sigar.jar",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-domainhealth.init download_ms_so_|-/app/soa/domains/esbdomain_scn_d1/lib/libsigar-amd64-linux.so_|-managed": {
+            "__run_num__": 91,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/libsigar-amd64-linux.so updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/libsigar-amd64-linux.so",
+            "result": true
+          },
+          "file_|-domainhealth.init download_ms_war_|-/app/soa/tmp/wlhostmachinestats-030.war_|-managed": {
+            "__run_num__": 96,
+            "changes": {},
+            "comment": "File /app/soa/tmp/wlhostmachinestats-030.war is in the correct state",
+            "name": "/app/soa/tmp/wlhostmachinestats-030.war",
+            "result": true
+          },
+          "file_|-osb11.init check osb_|-/app/soa/mw_esbdomain_scn_d1_|-directory": {
+            "__run_num__": 24,
+            "changes": {},
+            "comment": "Directory /app/soa/mw_esbdomain_scn_d1 is in the correct state",
+            "name": "/app/soa/mw_esbdomain_scn_d1",
+            "result": true
+          },
+          "file_|-osb11.template config-groups-xml_|-/tmp/config-groups.xml_|-managed": {
+            "__run_num__": 21,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /tmp/config-groups.xml updated",
+            "name": "/tmp/config-groups.xml",
+            "result": true
+          },
+          "file_|-osb11.template del_config-groups-xml_|-/tmp/config-groups.xml_|-absent": {
+            "__run_num__": 23,
+            "changes": {
+              "removed": "/tmp/config-groups.xml"
+            },
+            "comment": "Removed file /tmp/config-groups.xml",
+            "name": "/tmp/config-groups.xml",
+            "result": true
+          },
+          "file_|-osb11.template scripted_wlsb_template_|-/tmp/scriptedwlsb.jar_|-managed": {
+            "__run_num__": 20,
+            "changes": {
+              "diff": "Replace binary file"
+            },
+            "comment": "File /tmp/scriptedwlsb.jar updated",
+            "name": "/tmp/scriptedwlsb.jar",
+            "result": true
+          },
+          "file_|-osbproject.healthcheck copy jar_|-/app/soa/install/esbdomain_scn_d1/OSBHealthCheckService.jar_|-managed": {
+            "__run_num__": 81,
+            "changes": {},
+            "comment": "File /app/soa/install/esbdomain_scn_d1/OSBHealthCheckService.jar is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1/OSBHealthCheckService.jar",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-osbproject.mq mq_libs_10_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.pcf.jar_|-managed": {
+            "__run_num__": 74,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.pcf.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.pcf.jar",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-osbproject.mq mq_libs_11_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.postcard.jar_|-managed": {
+            "__run_num__": 75,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.postcard.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.postcard.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_12_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.soap.jar_|-managed": {
+            "__run_num__": 76,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.soap.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.soap.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_13_|-/app/soa/domains/esbdomain_scn_d1/lib/dhbcore.jar_|-managed": {
+            "__run_num__": 77,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/dhbcore.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/dhbcore.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_14_|-/app/soa/domains/esbdomain_scn_d1/lib/fscontext.jar_|-managed": {
+            "__run_num__": 78,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/fscontext.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/fscontext.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_1_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.jar_|-managed": {
+            "__run_num__": 65,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_2_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.jmqi.jar_|-managed": {
+            "__run_num__": 66,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.jmqi.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.jmqi.jar",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-osbproject.mq mq_libs_3_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.headers.jar_|-managed": {
+            "__run_num__": 67,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.headers.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.headers.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_4_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mqjms.jar_|-managed": {
+            "__run_num__": 68,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mqjms.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mqjms.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_5_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.commonservices.jar_|-managed": {
+            "__run_num__": 69,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.commonservices.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.commonservices.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_6_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.defaultconfig.jar_|-managed": {
+            "__run_num__": 70,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.defaultconfig.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.defaultconfig.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_7_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mqetclient.jar_|-managed": {
+            "__run_num__": 71,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mqetclient.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mqetclient.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_8_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.tools.ras.jar_|-managed": {
+            "__run_num__": 72,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.tools.ras.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.tools.ras.jar",
+            "result": true
+          },
+          "file_|-osbproject.mq mq_libs_9_|-/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.jms.Nojndi.jar_|-managed": {
+            "__run_num__": 73,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.jms.Nojndi.jar updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/lib/com.ibm.mq.jms.Nojndi.jar",
+            "result": true
+          },
+          "file_|-osbproject.osbutil check directory /app/soa/install/esbdomain_scn_d1/osbutil_|-/app/soa/install/esbdomain_scn_d1/osbutil_|-directory": {
+            "__run_num__": 79,
+            "changes": {},
+            "comment": "Directory /app/soa/install/esbdomain_scn_d1/osbutil is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1/osbutil",
+            "result": true
+          },
+          "file_|-osbproject.osbutil copy files to /app/soa/install/esbdomain_scn_d1/osbutil_|-/app/soa/install/esbdomain_scn_d1/osbutil_|-recurse": {
+            "__run_num__": 80,
+            "changes": {},
+            "comment": "The directory /app/soa/install/esbdomain_scn_d1/osbutil is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1/osbutil",
+            "result": true
+          },
+          "file_|-osbproject.setdomainenv EXTRA_JAVA_PROPERTIES_|-/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh_|-replace": {
+            "__run_num__": 63,
+            "changes": {
+              "diff": "---  \n+++  \n@@ -382,7 +382,7 @@\n # -Djavax.security.jacc.PolicyConfigurationFactory.provider=weblogic.security.jacc.simpleprovider.PolicyConfigurationFactoryImpl\n # -Dweblogic.security.jacc.RoleMapperFactory.provider=weblogic.security.jacc.simpleprovider.RoleMapperFactoryImpl\n \n-EXTRA_JAVA_PROPERTIES=\"${EXTRA_JAVA_PROPERTIES} -Dem.oracle.home=/app/soa/mw_esbdomain_scn_d1/oracle_common -Djava.awt.headless=true\"\n+EXTRA_JAVA_PROPERTIES=\"${EXTRA_JAVA_PROPERTIES} -Dem.oracle.home=/app/soa/mw_esbdomain_scn_d1/oracle_common -Djava.awt.headless=true -Dweblogic.security.SSL.enforceConstraints=off -Dweblogic.security.SSL.ignoreHostnameVerification=true -Dweblogic.security.SSL.nojce=true -Dcom.bea.osb.http.cookieAsNoComplexElement=true\"\n export EXTRA_JAVA_PROPERTIES\n \n EXTRA_JAVA_PROPERTIES=\"-Dcommon.components.home=${COMMON_COMPONENTS_HOME} -Djrf.version=11.1.1 -Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.Jdk14Logger -Ddomain.home=${DOMAIN_HOME} -Djrockit.optfile=${COMMON_COMPONENTS_HOME}/modules/oracle.jrf_11.1.1/jrocket_optfile.txt -Doracle.server.config.dir=${ORACLE_DOMAIN_CONFIG_DIR}/servers/${SERVER_NAME} -Doracle.domain.config.dir=${ORACLE_DOMAIN_CONFIG_DIR}  -Digf.arisidbeans.carmlloc=${ORACLE_DOMAIN_CONFIG_DIR}/carml  -Digf.arisidstack.home=${ORACLE_DOMAIN_CONFIG_DIR}/arisidprovider -Doracle.security.jps.config=${DOMAIN_HOME}/config/fmwconfig/jps-config.xml -Doracle.deployed.app.dir=${DOMAIN_HOME}/servers/${SERVER_NAME}/tmp/_WL_user -Doracle.deployed.app.ext=/- -Dweblogic.alternateTypesDirectory=${ALT_TYPES_DIR} -Djava.protocol.handler.pkgs=${PROTOCOL_HANDLERS}  ${WLS_JDBC_REMOTE_ENABLED} ${EXTRA_JAVA_PROPERTIES}\"\n"
+            },
+            "comment": "Changes were made",
+            "name": "/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh",
+            "result": true
+          },
+          "file_|-osbproject.setdomainenv PRODUCTION_MODE_|-/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh_|-replace": {
+            "__run_num__": 62,
+            "changes": {
+              "diff": "---  \n+++  \n@@ -139,7 +139,7 @@\n enableHotswapFlag=\"\"\n export enableHotswapFlag\n \n-PRODUCTION_MODE=\"\"\n+PRODUCTION_MODE=\"true\"\n export PRODUCTION_MODE\n \n doExitFlag=\"false\"\n"
+            },
+            "comment": "Changes were made",
+            "name": "/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh",
+            "result": true
+          },
+          "file_|-osbproject.setdomainenv UMASK_|-/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh_|-append": {
+            "__run_num__": 64,
+            "changes": {
+              "diff": "---  \n+++  \n@@ -610,3 +610,5 @@\n else\n     MEM_ARGS=\"${MANAGED_HEAP}\"\n fi\n+# UDG umask\n+umask 0007\n"
+            },
+            "comment": "Appended 2 lines",
+            "name": "/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh",
+            "result": true
+          },
+          "file_|-osbproject.setdomainenv debugFlag_|-/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh_|-replace": {
+            "__run_num__": 61,
+            "changes": {
+              "diff": "---  \n+++  \n@@ -130,7 +130,7 @@\n \texport SERVER_NAME\n fi\n \n-debugFlag=\"true\"\n+debugFlag=\"false\"\n export debugFlag\n \n DERBY_FLAG=\"false\"\n"
+            },
+            "comment": "Changes were made",
+            "name": "/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-soaenv.init /home/soa_|-/home/soa_|-directory": {
+            "__run_num__": 4,
+            "changes": {},
+            "comment": "Directory /home/soa is in the correct state",
+            "name": "/home/soa",
+            "result": true
+          },
+          "file_|-soaenv.rlwrap add rlwrap to bashrc_|-/home/soa/.bashrc_|-append": {
+            "__run_num__": 3,
+            "changes": {},
+            "comment": "Appended 0 lines",
+            "name": "/home/soa/.bashrc",
+            "result": true
+          },
+          "file_|-soaenv.rlwrap check home/bin_|-/home/soa/bin_|-directory": {
+            "__run_num__": 1,
+            "changes": {},
+            "comment": "Directory /home/soa/bin is in the correct state",
+            "name": "/home/soa/bin",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-soaenv.rlwrap cp rlwrap binary_|-/home/soa/bin/rlwrap_|-managed": {
+            "__run_num__": 2,
+            "changes": {},
+            "comment": "File /home/soa/bin/rlwrap is in the correct state",
+            "name": "/home/soa/bin/rlwrap",
+            "result": true
+          },
+          "file_|-soaenv.tmpdir /app/soa/tmp_|-/app/soa/tmp_|-directory": {
+            "__run_num__": 0,
+            "changes": {},
+            "comment": "Directory /app/soa/tmp is in the correct state",
+            "name": "/app/soa/tmp",
+            "result": true
+          },
+          "file_|-soajdk.init create java version file_|-/app/soa/soajdk-osb/.version_|-append": {
+            "__run_num__": 8,
+            "changes": {},
+            "comment": "Appended 0 lines",
+            "name": "/app/soa/soajdk-osb/.version",
+            "result": true
+          },
+          "file_|-soajdk.init create java_home directory_|-/app/soa/soajdk-osb_|-directory": {
+            "__run_num__": 7,
+            "changes": {},
+            "comment": "Directory /app/soa/soajdk-osb is in the correct state",
+            "name": "/app/soa/soajdk-osb",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-soajdk.init download jdk tar_|-/app/soa/soajdk-osb/jdk_17u75.tgz_|-managed": {
+            "__run_num__": 9,
+            "changes": {},
+            "comment": "File /app/soa/soajdk-osb/jdk_17u75.tgz is in the correct state",
+            "name": "/app/soa/soajdk-osb/jdk_17u75.tgz",
+            "result": true
+          },
+          "file_|-soajdk.profile add java to profile_|-/home/soa/.profile_|-append": {
+            "__run_num__": 5,
+            "changes": {},
+            "comment": "Appended 0 lines",
+            "name": "/home/soa/.profile",
+            "result": true
+          },
+          "file_|-testhttp.init download_testhttp_war_|-/app/soa/tmp/testHttp.war_|-managed": {
+            "__run_num__": 89,
+            "changes": {},
+            "comment": "File /app/soa/tmp/testHttp.war is in the correct state",
+            "name": "/app/soa/tmp/testHttp.war",
+            "result": true
+          },
+          "file_|-weblogic11.init check weblogic11g_|-/app/soa/mw_esbdomain_scn_d1_|-directory": {
+            "__run_num__": 15,
+            "changes": {},
+            "comment": "Directory /app/soa/mw_esbdomain_scn_d1 is in the correct state",
+            "name": "/app/soa/mw_esbdomain_scn_d1",
+            "result": true
+          },
+          "file_|-weblogic11.tmpdir create tmpdir_|-/app/soa/tmp_|-directory": {
+            "__run_num__": 11,
+            "changes": {},
+            "comment": "Directory /app/soa/tmp is in the correct state",
+            "name": "/app/soa/tmp",
+            "result": true
+          },
+          "file_|-wlsdomain.init check domain_|-/app/soa/mw_esbdomain_scn_d1_|-directory": {
+            "__run_num__": 60,
+            "changes": {},
+            "comment": "Directory /app/soa/mw_esbdomain_scn_d1 is in the correct state",
+            "name": "/app/soa/mw_esbdomain_scn_d1",
+            "result": true
+          },
+          "file_|-wlsdomain.keystore download keystore_|-/app/soa/domains/esbdomain_scn_d1/security/slesb-dev.dc.signintra.com.jks_|-managed": {
+            "__run_num__": 58,
+            "changes": {
+              "diff": "New file",
+              "mode": "0644"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1/security/slesb-dev.dc.signintra.com.jks updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1/security/slesb-dev.dc.signintra.com.jks",
+            "result": true
+          },
+          "file_|-wlsdomain.memory set mem args_|-/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh_|-append": {
+            "__run_num__": 59,
+            "changes": {
+              "diff": "---  \n+++  \n@@ -601,3 +601,12 @@\n \texport JAVA_VM\n fi\n \n+# export these options at end of file - we may change them based on other params\n+MANAGED_HEAP=\"-Xms2048m -Xmx2048m -XX:PermSize=512m -XX:MaxPermSize=512m\"\n+ADMIN_HEAP=\"-Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m\"\n+ADMINSERVER_NAME=\"admosb_scn_d1\"\n+if [ \"${SERVER_NAME}\" = \"${ADMINSERVER_NAME}\" ] ; then\n+    MEM_ARGS=\"${ADMIN_HEAP}\"\n+else\n+    MEM_ARGS=\"${MANAGED_HEAP}\"\n+fi\n"
+            },
+            "comment": "Appended 9 lines",
+            "name": "/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh",
+            "result": true
+          },
+          "file_|-wlsdomain.rda create rda_osb.sh_|-/app/soa/install/esbdomain_scn_d1/rda/rda_osb.sh_|-append": {
+            "__run_num__": 50,
+            "changes": {},
+            "comment": "Appended 0 lines",
+            "name": "/app/soa/install/esbdomain_scn_d1/rda/rda_osb.sh",
+            "result": true
+          },
+          "file_|-wlsdomain.rda create rda_wls.sh_|-/app/soa/install/esbdomain_scn_d1/rda/rda_wls.sh_|-append": {
+            "__run_num__": 51,
+            "changes": {},
+            "comment": "Appended 0 lines",
+            "name": "/app/soa/install/esbdomain_scn_d1/rda/rda_wls.sh",
+            "result": true
+          },
+          "file_|-wlsdomain.rda download rda.zip_|-/app/soa/install/esbdomain_scn_d1/rda.zip_|-managed": {
+            "__run_num__": 48,
+            "changes": {},
+            "comment": "File /app/soa/install/esbdomain_scn_d1/rda.zip is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1/rda.zip",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-wlsdomain.up2date chmod esbdomain_scn_d1.yml_|-/app/soa/install/esbdomain_scn_d1/esbdomain_scn_d1.yml_|-managed": {
+            "__run_num__": 54,
+            "changes": {
+              "mode": "0600"
+            },
+            "comment": "File /app/soa/install/esbdomain_scn_d1/esbdomain_scn_d1.yml updated",
+            "name": "/app/soa/install/esbdomain_scn_d1/esbdomain_scn_d1.yml",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-wlsdomain.up2date chmod jython_log4j.log_|-/app/soa/install/esbdomain_scn_d1/jython_log4j.log_|-managed": {
+            "__run_num__": 55,
+            "changes": {},
+            "comment": "File /app/soa/install/esbdomain_scn_d1/jython_log4j.log is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1/jython_log4j.log",
+            "result": true
+          },
+          "file_|-wlsdomain.up2date disable derby flag_|-/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh_|-replace": {
+            "__run_num__": 56,
+            "changes": {},
+            "comment": "No changes were made",
+            "name": "/app/soa/domains/esbdomain_scn_d1/bin/setDomainEnv.sh",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-wlsproject.files /app/soa/install/esbdomain_scn_d1_|-/app/soa/install/esbdomain_scn_d1_|-recurse": {
+            "__run_num__": 26,
+            "changes": {},
+            "comment": "The directory /app/soa/install/esbdomain_scn_d1 is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1",
+            "result": true
+          },
+          "file_|-wlsproject.files check directory /app/soa/install/esbdomain_scn_d1_|-/app/soa/install/esbdomain_scn_d1_|-directory": {
+            "__run_num__": 25,
+            "changes": {},
+            "comment": "Directory /app/soa/install/esbdomain_scn_d1 is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1",
+            "result": true
+          },
+          "file_|-wlsproject.files esbdomain_scn_d1.yml_|-/app/soa/install/esbdomain_scn_d1/esbdomain_scn_d1.yml_|-managed": {
+            "__run_num__": 27,
+            "changes": {},
+            "comment": "File /app/soa/install/esbdomain_scn_d1/esbdomain_scn_d1.yml is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1/esbdomain_scn_d1.yml",
+            "result": true
+          },
+          "file_|-wlsproject.init /home/soa_|-/home/soa_|-directory": {
+            "__run_num__": 46,
+            "changes": {},
+            "comment": "Directory /home/soa is in the correct state",
+            "name": "/home/soa",
+            "result": true
+          },
+          "file_|-wlsproject.init_script /app/soa/etc/init.d_|-/app/soa/etc/init.d_|-directory": {
+            "__run_num__": 39,
+            "changes": {},
+            "comment": "Directory /app/soa/etc/init.d is in the correct state",
+            "name": "/app/soa/etc/init.d",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-wlsproject.init_script log4j.properties_|-/app/soa/etc/init.d/log4j.properties_|-managed": {
+            "__run_num__": 40,
+            "changes": {},
+            "comment": "File /app/soa/etc/init.d/log4j.properties is in the correct state",
+            "name": "/app/soa/etc/init.d/log4j.properties",
+            "result": true
+          },
+          "file_|-wlsproject.init_script root.sh_|-/app/soa/etc/init.d/root.sh_|-managed": {
+            "__run_num__": 44,
+            "changes": {},
+            "comment": "File /app/soa/etc/init.d/root.sh is in the correct state",
+            "name": "/app/soa/etc/init.d/root.sh",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-wlsproject.init_script soa-wls-init_|-/app/soa/etc/init.d/soa-wls-init_|-managed": {
+            "__run_num__": 42,
+            "changes": {},
+            "comment": "File /app/soa/etc/init.d/soa-wls-init is in the correct state",
+            "name": "/app/soa/etc/init.d/soa-wls-init",
+            "result": true
+          },
+          "file_|-wlsproject.init_script soa-wls-start-stop.sh_|-/app/soa/etc/init.d/soa-wls-start-stop.sh_|-managed": {
+            "__run_num__": 43,
+            "changes": {},
+            "comment": "File /app/soa/etc/init.d/soa-wls-start-stop.sh is in the correct state",
+            "name": "/app/soa/etc/init.d/soa-wls-start-stop.sh",
+            "result": true
+          },
+          "file_|-wlsproject.init_script soa-wls_|-/app/soa/etc/init.d/soa-wls_|-managed": {
+            "__run_num__": 41,
+            "changes": {},
+            "comment": "File /app/soa/etc/init.d/soa-wls is in the correct state",
+            "name": "/app/soa/etc/init.d/soa-wls",
+            "result": true
+          },
+          "file_|-wlsproject.nodemanager create /app/soa/domains/esbdomain_scn_d1_nodemanager_|-/app/soa/domains/esbdomain_scn_d1_nodemanager_|-directory": {
+            "__run_num__": 32,
+            "changes": {},
+            "comment": "Directory /app/soa/domains/esbdomain_scn_d1_nodemanager is in the correct state",
+            "name": "/app/soa/domains/esbdomain_scn_d1_nodemanager",
+            "result": true
+          },
+          "file_|-wlsproject.nodemanager nodemanager.properties migration_|-/app/soa/domains/esbdomain_scn_d1_nodemanager/nodemanager.properties_|-append": {
+            "__run_num__": 38,
+            "changes": {
+              "diff": "---  \n+++  \n@@ -32,3 +32,5 @@\n LogFile=/app/soa/domains/esbdomain_scn_d1_nodemanager/nodemanager.log\n LogFormatter=weblogic.nodemanager.server.LogFormatter\n ListenBacklog=50\n+NetMask=255.255.255.0\n+Interface=eth0\n"
+            },
+            "comment": "Appended 2 lines",
+            "name": "/app/soa/domains/esbdomain_scn_d1_nodemanager/nodemanager.properties",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-wlsproject.nodemanager nodemanager.properties_|-/app/soa/domains/esbdomain_scn_d1_nodemanager/nodemanager.properties_|-managed": {
+            "__run_num__": 33,
+            "changes": {
+              "diff": "---  \n+++  \n@@ -32,5 +32,3 @@\n LogFile=/app/soa/domains/esbdomain_scn_d1_nodemanager/nodemanager.log\n LogFormatter=weblogic.nodemanager.server.LogFormatter\n ListenBacklog=50\n-NetMask=255.255.255.0\n-Interface=eth0\n"
+            },
+            "comment": "File /app/soa/domains/esbdomain_scn_d1_nodemanager/nodemanager.properties updated",
+            "name": "/app/soa/domains/esbdomain_scn_d1_nodemanager/nodemanager.properties",
+            "result": true
+          },
+          "file_|-wlsproject.nodemanager nodemanager.sh_|-/app/soa/install/esbdomain_scn_d1/nodemanager.sh_|-managed": {
+            "__run_num__": 34,
+            "changes": {},
+            "comment": "File /app/soa/install/esbdomain_scn_d1/nodemanager.sh is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1/nodemanager.sh",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-wlsproject.nodemanager startNodeManager.sh_|-/app/soa/domains/esbdomain_scn_d1_nodemanager/startNodeManager.sh_|-managed": {
+            "__run_num__": 35,
+            "changes": {},
+            "comment": "File /app/soa/domains/esbdomain_scn_d1_nodemanager/startNodeManager.sh is in the correct state",
+            "name": "/app/soa/domains/esbdomain_scn_d1_nodemanager/startNodeManager.sh",
+            "result": true
+          },
+          "file_|-wlsproject.profile_|-/home/soa/.profile_|-append": {
+            "__run_num__": 45,
+            "changes": {},
+            "comment": "Appended 0 lines",
+            "name": "/home/soa/.profile",
+            "result": true
+          },
+          "file_|-wlsproject.templates append .domain_file_|-/app/soa/install/esbdomain_scn_d1/.domain_file_|-append": {
+            "__run_num__": 30,
+            "changes": {},
+            "comment": "Appended 0 lines",
+            "name": "/app/soa/install/esbdomain_scn_d1/.domain_file",
+            "result": true,
+            "retcode": 2
+          },
+          "file_|-wlsproject.templates control.sh_|-/app/soa/install/esbdomain_scn_d1/control.sh_|-managed": {
+            "__run_num__": 28,
+            "changes": {},
+            "comment": "File /app/soa/install/esbdomain_scn_d1/control.sh is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1/control.sh",
+            "result": true
+          },
+          "file_|-wlsproject.templates setMyDomainEnv.sh_|-/app/soa/install/esbdomain_scn_d1/setMyDomainEnv.sh_|-managed": {
+            "__run_num__": 29,
+            "changes": {},
+            "comment": "File /app/soa/install/esbdomain_scn_d1/setMyDomainEnv.sh is in the correct state",
+            "name": "/app/soa/install/esbdomain_scn_d1/setMyDomainEnv.sh",
+            "result": true
+          },
+          "grains_|-append to  wls_domains grain_|-wls_domains_|-list_present": {
+            "__run_num__": 57,
+            "changes": {},
+            "comment": "Value esbdomain_scn_d1 is already in grain wls_domains",
+            "name": "wls_domains",
+            "result": true
+          },
+          "inventory11g_|-osb11.inventory check oracle inventory_|-osb11.inventory check oracle inventory_|-present": {
+            "__run_num__": 16,
+            "changes": {},
+            "comment": "inventory already present in /app/soa/mw_esbdomain_scn_d1",
+            "name": "present",
+            "result": true
+          },
+          "opatch_|-osb11.patches osbpatch_1 present_|-osb11.patches osbpatch_1 present_|-installed": {
+            "__run_num__": 18,
+            "changes": {},
+            "comment": "patch 20423630 already installed",
+            "name": "installed",
+            "result": true,
+            "retcode": 2
+          },
+          "opatch_|-osb11.patches osbpatch_2 present_|-osb11.patches osbpatch_2 present_|-installed": {
+            "__run_num__": 19,
+            "changes": {},
+            "comment": "patch 16516838 already installed",
+            "name": "installed",
+            "result": true
+          },
+          "osb11g_|-osb11.software check software installation_|-osb11.software check software installation_|-installed": {
+            "__run_num__": 17,
+            "changes": {},
+            "comment": "Oracle Service Bus already installed in /app/soa/mw_esbdomain_scn_d1",
+            "name": "installed",
+            "result": true
+          },
+          "weblogic11g_|-weblogic11.software install weblogic11g_|-weblogic11.software install weblogic11g_|-installed": {
+            "__run_num__": 12,
+            "changes": {},
+            "comment": "Weblogic already installed in /app/soa/mw_esbdomain_scn_d1",
+            "name": "installed",
+            "result": true,
+            "retcode": 2
+          },
+          "wlsdomain2_|-wlsdomain.create create domain offline_|-wlsdomain.create create domain offline_|-enroll": {
+            "__run_num__": 93,
+            "changes": {
+              "esbdomain_scn_d1.schwebach": "enrolled"
+            },
+            "comment": "successfully enrolled nodemanager esbdomain_scn_d1 in /app/soa/domains/esbdomain_scn_d1",
+            "name": "up2date",
+            "result": true
+          },
+          "wlsdomain2_|-wlsdomain.restart restart domain_|-wlsdomain.restart restart domain_|-restart": {
+            "__run_num__": 94,
+            "changes": {
+              "esbdomain_scn_d1": "restart"
+            },
+            "comment": "successfully restarted esbdomain_scn_d1 in /app/soa/domains/esbdomain_scn_d1",
+            "name": "restart",
+            "result": true
+          },
+          "wlsdomain2_|-wlsdomain.up2date update domain online_|-wlsdomain.up2date update domain online_|-up2date": {
+            "__run_num__": 52,
+            "changes": {
+              "ALSB UDDI Manager.Targets": "admosb_scn_d1",
+              "ClusterChannel.ListenPort": "7322",
+              "ClusterChannel.OutboundEnabled": "true",
+              "ClusterChannel.Protocol": "cluster-broadcast",
+              "ClusterChannel.PublicPort": "7322",
+              "DefaultIdentityAsserter.ActiveTypes": "['AuthenticatedUser', 'X.509']",
+              "DefaultIdentityAsserter.DefaultUserNameMapperAttributeType": "CN",
+              "DefaultIdentityAsserter.UseDefaultUserNameMapper": "true",
+              "DomainArchiveConfigurationCount": "10",
+              "DomainConfigBackupEnabled": "true",
+              "DomainConfigurationAuditType": "log",
+              "JDBCSystemResource.mds-owsm": "created",
+              "NetworkAccessPoint.ClusterChannel": "created",
+              "Property.SendStreamAsBlob": "created",
+              "Property.oracle.net.CONNECT_TIMEOUT": "created",
+              "Property.user": "created",
+              "SendStreamAsBlob.Value": "true",
+              "Users.mwbf": " created",
+              "Users.mwbf.Group": "Administrators added",
+              "admosb_scn_d1.Arguments": "-Dweblogic.Stdout=/var/app/soa/esbdomain_scn_d1/admosb_scn_d1/admosb_scn_d1.stdout -Dweblogic.Stderr=/var/app/soa/esbdomain_scn_d1/admosb_scn_d1/admosb_scn_d1.stderr -verbose:gc -Xloggc:/var/app/soa/esbdomain_scn_d1/admosb_scn_d1/admosb_scn_d1_gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:-UseAdaptiveSizePolicy -XX:+UseParallelOldGC -Ddh_stats_output_path=/var/app/soa/esbdomain_scn_d1/stats",
+              "admosb_scn_d1.AutoKillIfFailed": "true",
+              "admosb_scn_d1.DateFormatPattern": "dd.MM.yyyy HH:mm:ss,SSS z",
+              "admosb_scn_d1.FileCount": "20",
+              "admosb_scn_d1.FileMinSize": "50000",
+              "admosb_scn_d1.FileName": "/var/app/soa/esbdomain_scn_d1/admosb_scn_d1/admosb_scn_d1-access.log",
+              "admosb_scn_d1.GracefulShutdownTimeout": "60",
+              "admosb_scn_d1.IgnoreSessionsDuringShutdown": "true",
+              "admosb_scn_d1.ListenPort": "7358",
+              "admosb_scn_d1.MaxMessageSize": "10485760",
+              "admosb_scn_d1.NumberOfFilesLimited": "true",
+              "esbcluster_scn_d1.ClusterAddress": "schwebach-scintilla-a2.linux.rz.db.de:7302,schwebach-scintilla-a3.linux.rz.db.de:7302",
+              "esbcluster_scn_d1.ClusterBroadcastChannel": "ClusterChannel",
+              "esbcluster_scn_d1.FrontendHTTPPort": "7302",
+              "esbcluster_scn_d1.FrontendHost": "slesb-dev.dc.signintra.com",
+              "esbcluster_scn_d1.MemberDeathDetectorEnabled": "true",
+              "esbcluster_scn_d1.MessageOrderingEnabled": "true",
+              "esbcluster_scn_d1.NumberOfServersInClusterAddress": "2",
+              "esbdomain_scn_d1.DateFormatPattern": "dd.MM.yyyy HH:mm:ss,SSS z",
+              "esbdomain_scn_d1.FileCount": "20",
+              "esbdomain_scn_d1.FileMinSize": "50000",
+              "esbdomain_scn_d1.FileName": "/var/app/soa/esbdomain_scn_d1/wl-domain.log",
+              "esbdomain_scn_d1.NumberOfFilesLimited": "true",
+              "esbsvr_scn_d1_1.Arguments": "-Dweblogic.Stdout=/var/app/soa/esbdomain_scn_d1/esbsvr_scn_d1_1/esbsvr_scn_d1_1.stdout -Dweblogic.Stderr=/var/app/soa/esbdomain_scn_d1/esbsvr_scn_d1_1/esbsvr_scn_d1_1.stderr -verbose:gc -Xloggc:/var/app/soa/esbdomain_scn_d1/esbsvr_scn_d1_1/esbsvr_scn_d1_1_gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:-UseAdaptiveSizePolicy -XX:+UseParallelOldGC -Dcom.bea.osb.http.cookieAsNoComplexElement=true",
+              "esbsvr_scn_d1_1.AutoKillIfFailed": "true",
+              "esbsvr_scn_d1_1.CustomIdentityKeyStoreFileName": "/app/soa/domains/esbdomain_scn_d1/security/slesb-dev.dc.signintra.com.jks",
+              "esbsvr_scn_d1_1.CustomIdentityKeyStorePassPhrase": "11f535055e63d375",
+              "esbsvr_scn_d1_1.CustomIdentityKeyStoreType": "JKS",
+              "esbsvr_scn_d1_1.CustomTrustKeyStoreFileName": "/app/soa/domains/esbdomain_scn_d1/security/slesb-dev.dc.signintra.com.jks",
+              "esbsvr_scn_d1_1.CustomTrustKeyStorePassPhrase": "11f535055e63d375",
+              "esbsvr_scn_d1_1.CustomTrustKeyStoreType": "JKS",
+              "esbsvr_scn_d1_1.DateFormatPattern": "dd.MM.yyyy HH:mm:ss,SSS z",
+              "esbsvr_scn_d1_1.Enabled": "true",
+              "esbsvr_scn_d1_1.FileCount": "20",
+              "esbsvr_scn_d1_1.FileMinSize": "50000",
+              "esbsvr_scn_d1_1.FileName": "/var/app/soa/esbdomain_scn_d1/esbsvr_scn_d1_1/esbsvr_scn_d1_1-access.log",
+              "esbsvr_scn_d1_1.FreeMemoryPercentHighThreshold": "20",
+              "esbsvr_scn_d1_1.FreeMemoryPercentLowThreshold": "5",
+              "esbsvr_scn_d1_1.GracefulShutdownTimeout": "120",
+              "esbsvr_scn_d1_1.HostnameVerificationIgnored": "true",
+              "esbsvr_scn_d1_1.IgnoreSessionsDuringShutdown": "true",
+              "esbsvr_scn_d1_1.JavaHome": "/app/soa/soajdk-osb",
+              "esbsvr_scn_d1_1.KeyStores": "CustomIdentityAndCustomTrust",
+              "esbsvr_scn_d1_1.ListenPort": "7303",
+              "esbsvr_scn_d1_1.MaxMessageSize": "10485760",
+              "esbsvr_scn_d1_1.NumberOfFilesLimited": "true",
+              "esbsvr_scn_d1_1.PanicAction": "system-exit",
+              "esbsvr_scn_d1_1.ServerPrivateKeyAlias": "slesb-dev.dc.signintra.com",
+              "esbsvr_scn_d1_1.ServerPrivateKeyPassPhrase": "11f535055e63d375",
+              "esbsvr_scn_d1_1.TwoWaySSLEnabled": "true",
+              "esbsvr_scn_d1_2.Arguments": "-Dweblogic.Stdout=/var/app/soa/esbdomain_scn_d1/esbsvr_scn_d1_2/esbsvr_scn_d1_2.stdout -Dweblogic.Stderr=/var/app/soa/esbdomain_scn_d1/esbsvr_scn_d1_2/esbsvr_scn_d1_2.stderr -verbose:gc -Xloggc:/var/app/soa/esbdomain_scn_d1/esbsvr_scn_d1_2/esbsvr_scn_d1_2_gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:-UseAdaptiveSizePolicy -XX:+UseParallelOldGC -Dcom.bea.osb.http.cookieAsNoComplexElement=true",
+              "esbsvr_scn_d1_2.AutoKillIfFailed": "true",
+              "esbsvr_scn_d1_2.CustomIdentityKeyStoreFileName": "/app/soa/domains/esbdomain_scn_d1/security/slesb-dev.dc.signintra.com.jks",
+              "esbsvr_scn_d1_2.CustomIdentityKeyStorePassPhrase": "11f535055e63d375",
+              "esbsvr_scn_d1_2.CustomIdentityKeyStoreType": "JKS",
+              "esbsvr_scn_d1_2.CustomTrustKeyStoreFileName": "/app/soa/domains/esbdomain_scn_d1/security/slesb-dev.dc.signintra.com.jks",
+              "esbsvr_scn_d1_2.CustomTrustKeyStorePassPhrase": "11f535055e63d375",
+              "esbsvr_scn_d1_2.CustomTrustKeyStoreType": "JKS",
+              "esbsvr_scn_d1_2.DateFormatPattern": "dd.MM.yyyy HH:mm:ss,SSS z",
+              "esbsvr_scn_d1_2.Enabled": "true",
+              "esbsvr_scn_d1_2.FileCount": "20",
+              "esbsvr_scn_d1_2.FileMinSize": "50000",
+              "esbsvr_scn_d1_2.FileName": "/var/app/soa/esbdomain_scn_d1/esbsvr_scn_d1_2/esbsvr_scn_d1_2-access.log",
+              "esbsvr_scn_d1_2.FreeMemoryPercentHighThreshold": "20",
+              "esbsvr_scn_d1_2.FreeMemoryPercentLowThreshold": "5",
+              "esbsvr_scn_d1_2.GracefulShutdownTimeout": "120",
+              "esbsvr_scn_d1_2.HostnameVerificationIgnored": "true",
+              "esbsvr_scn_d1_2.IgnoreSessionsDuringShutdown": "true",
+              "esbsvr_scn_d1_2.JavaHome": "/app/soa/soajdk-osb",
+              "esbsvr_scn_d1_2.KeyStores": "CustomIdentityAndCustomTrust",
+              "esbsvr_scn_d1_2.ListenPort": "7303",
+              "esbsvr_scn_d1_2.MaxMessageSize": "10485760",
+              "esbsvr_scn_d1_2.NumberOfFilesLimited": "true",
+              "esbsvr_scn_d1_2.PanicAction": "system-exit",
+              "esbsvr_scn_d1_2.ServerPrivateKeyAlias": "slesb-dev.dc.signintra.com",
+              "esbsvr_scn_d1_2.ServerPrivateKeyPassPhrase": "11f535055e63d375",
+              "esbsvr_scn_d1_2.TwoWaySSLEnabled": "true",
+              "mds-owsm.DriverName": "oracle.jdbc.OracleDriver",
+              "mds-owsm.GlobalTransactionsProtocol": "None",
+              "mds-owsm.JNDINames": "['jdbc/mds/owsm']",
+              "mds-owsm.Name": "mds-owsm",
+              "mds-owsm.Password": "dev4scnda2db_",
+              "mds-owsm.Targets": "esbcluster_scn_d1:Cluster,admosb_scn_d1:Server",
+              "mds-owsm.TestTableName": "SQL SELECT 1 FROM DUAL",
+              "mds-owsm.Url": "jdbc:oracle:thin:@solms.linux.rz.db.de:6777/SCNTA",
+              "oracle.jrf.coherence#3@11.1.1.Targets": "admosb_scn_d1:Server,esbcluster_scn_d1:Cluster",
+              "oracle.net.CONNECT_TIMEOUT.Value": "10000",
+              "schwebach.Password": "2dev4slesb!",
+              "user.Value": "SCNDA_MDS",
+              "wlsbjmsrpDataSource.DriverName": "oracle.jdbc.OracleDriver",
+              "wlsbjmsrpDataSource.Password": "dev4scnda2db_",
+              "wlsbjmsrpDataSource.TestTableName": "SQL SELECT 1 FROM DUAL",
+              "wlsbjmsrpDataSource.Url": "jdbc:oracle:thin:@solms.linux.rz.db.de:6777/SCNTA"
+            },
+            "comment": "successfully created or updated esbdomain_scn_d1 in /app/soa/domains/esbdomain_scn_d1",
+            "name": "up2date",
+            "result": true,
+            "retcode": 2
+          },
+          "wlsdomain2_|-wlsproject.templates update pillar file_|-wlsproject.templates update pillar file_|-writepillar": {
+            "__run_num__": 31,
+            "changes": {},
+            "comment": "successfully updated pillar file",
+            "name": "writepillar",
+            "result": true
+          },
+          "wlsdomain_|-weblogic.patches patch_1 present_|-weblogic.patches patch_1 present_|-patch_installed": {
+            "__run_num__": 13,
+            "changes": {},
+            "comment": "patch YUIS already installed",
+            "name": "patch_installed",
+            "result": true
+          },
+          "wlsdomain_|-weblogic.patches patch_2 present_|-weblogic.patches patch_2 present_|-patch_installed": {
+            "__run_num__": 14,
+            "changes": {},
+            "comment": "patch IZS7 already installed",
+            "name": "patch_installed",
+            "result": true
+          }
+        },
+        "success": true
+      }
+    }
+  ]
+}

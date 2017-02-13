@@ -1,0 +1,286 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div id="psc" layout="column">
+
+  <md-tabs md-dynamic-height md-border-bottom class="margin-top-3">
+    <md-tab label="Incidents">
+      <form class="md-padding margin-top-20 margin-padding-bottom-0" layout="row"
+            ng-submit="ctrl.readIncident(incident.id)">
+        <md-input-container class="md-block margin-8" layout="row" flex>
+          <md-icon class="color-icon md-primary" md-svg-icon="res/img/search_white.svg"></md-icon>
+          <input ng-model="incident.id" type="text" placeholder="Incident ID">
+        </md-input-container>
+        <div>
+          <md-button class="md-primary md-raised" ng-click="ctrl.readIncident(incident.id)">
+            <span hide-xs>Suche starten</span>
+            <span hide-gt-xs>Suchen</span>
+          </md-button>
+        </div>
+      </form>
+
+      <div class="center-flex">
+        <div class="hint-card md-whiteframe-z1 round-corners md-padding"
+             ng-class="{'width-50p':$mdMedia('gt-xs')}">
+          Hinweis: Diese Seite funktioniert momentan nur mit der Testumgebung von PSC.
+          <br>
+          Incident-ID zum Testen: IM32858665
+        </div>
+      </div>
+
+      </md-content>
+      <md-content id="incident-cards" layout="column" layout-align="space-around stretch">
+        <md-card ng-show="ctrl.data.incident.incidentId != ''"> <!-- TODO add ng-repeat -->
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Incident {{ctrl.data.incident.incidentId}}</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <div class="margin-top-bottom-8" ng-show="ctrl.data.incident.category === ''">Kein Ergebnis...</div>
+            <table class="table" ng-show="ctrl.data.incident.category != ''">
+              <tbody>
+              <tr>
+                <td>
+                  Kategorie
+                </td>
+                <td>
+                  {{ctrl.data.incident.category}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Unterkategorie
+                </td>
+                <td>
+                  {{ctrl.data.incident.subcategory}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Produkt-Typ
+                </td>
+                <td>
+                  {{ctrl.data.incident.productType}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Geöffnet
+                </td>
+                <td>
+                  {{ctrl.data.incident.openTime}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Aktualisiert
+                </td>
+                <td>
+                  {{ctrl.data.incident.updatedTime}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Geöffnet von
+                </td>
+                <td>
+                  {{ctrl.data.incident.openedBy}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Ort
+                </td>
+                <td>
+                  {{ctrl.data.incident.location}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Kontakt
+                </td>
+                <td>
+                  {{ctrl.data.incident.contact}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Ticket-Besitzer
+                </td>
+                <td>
+                  {{ctrl.data.incident.ticketOwner}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Firma
+                </td>
+                <td>
+                  {{ctrl.data.incident.company}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Status
+                </td>
+                <td>
+                  {{ctrl.data.incident.ticketStatus}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Aktualisierungen
+                </td>
+                <td>
+                  <div ng-bind-html="ctrl.data.incident.journalUpdates"></div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </md-card-content>
+        </md-card>
+      </md-content>
+    </md-tab>
+
+    <md-tab label="Changes">
+      <form class="md-padding margin-top-20 margin-padding-bottom-0" layout="row"
+            ng-submit="ctrl.readChange(change.id)">
+        <md-input-container class="md-block margin-8" layout="row" flex>
+          <md-icon class="color-icon md-primary" md-svg-icon="res/img/search_white.svg"></md-icon>
+          <input ng-model="change.id" type="text" placeholder="Change ID">
+        </md-input-container>
+        <div>
+          <md-button class="md-primary md-raised" ng-click="ctrl.readChange(change.id)">
+            <span hide-xs>Suche starten</span>
+            <span hide-gt-xs>Suchen</span>
+          </md-button>
+        </div>
+      </form>
+
+      <div class="center-flex">
+        <div class="hint-card md-whiteframe-z1 round-corners md-padding"
+             ng-class="{'width-50p':$mdMedia('gt-xs')}">
+          Hinweis: Diese Seite funktioniert momentan nur mit der Testumgebung von PSC.
+          <br>
+          Change-ID zum Testen: C30507701
+        </div>
+      </div>
+
+      <md-content id="change-cards" layout="column" layout-align="space-around stretch">
+        <md-card ng-show="ctrl.data.change.changeId != ''">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Change {{ctrl.data.change.changeId}}</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <div class="margin-top-bottom-8" ng-show="ctrl.data.change.category === ''">Kein Ergebnis...</div>
+            <table class="table" ng-show="ctrl.data.change.category != ''">
+              <tbody>
+              <tr>
+                <td>
+                  Kategorie
+                </td>
+                <td>
+                  {{ctrl.data.change.category}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Status
+                </td>
+                <td>
+                  {{ctrl.data.change.status}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Initiiert von
+                </td>
+                <td>
+                  {{ctrl.data.change.initiated}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Koordinator
+                </td>
+                <td>
+                  {{ctrl.data.change.coordinator}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Phase
+                </td>
+                <td>
+                  {{ctrl.data.change.phase}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Risiko
+                </td>
+                <td>
+                  {{ctrl.data.change.risk}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Priorität
+                </td>
+                <td>
+                  {{ctrl.data.change.priority}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Mandant
+                </td>
+                <td>
+                  {{ctrl.data.change.customer}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Enddatum
+                </td>
+                <td>
+                  {{ctrl.data.change.date}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Cause Procedure
+                </td>
+                <td>
+                  {{ctrl.data.change.cause}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Umgebung
+                </td>
+                <td>
+                  {{ctrl.data.change.environment}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Auslösende OE
+                </td>
+                <td>
+                  {{ctrl.data.change.group}}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </md-card-content>
+        </md-card>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+</div>

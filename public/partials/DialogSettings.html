@@ -1,0 +1,90 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<md-dialog aria-label="Einstellungen">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Einstellungen</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="saveSettings(newSettings)">
+        <md-icon md-svg-src="res/img/clear_white.svg" aria-label="Schließen"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content" layout="column">
+      <div>
+        In diesem Menü lassen sich die Standard-Einstellungen für alle Seiten von Monigator festlegen. Sie bleiben
+        auch nach dem Schließen des Browsers erhalten, weil sie als Cookie abgespeichert werden. Die folgenden
+        Einstellungen können verändert werden:
+      </div>
+      <h3 class="md-headline">
+        Im Dashboard angezeigte Karten
+      </h3>
+      <md-checkbox ng-model="newSettings.showEnvsChart" class="md-hue-1"
+                   aria-label="Diagramm mit Verfahren">
+        Diagramm über alle Verfahren
+      </md-checkbox>
+      <md-checkbox ng-model="newSettings.showEnvsList" class="md-hue-1"
+                   aria-label="Liste mit Verfahren">
+        Liste mit allen Verfahren
+      </md-checkbox>
+      <md-checkbox ng-model="newSettings.showHostsChart" class="md-hue-1"
+                   aria-label="Diagramm mit Hosts">
+        Diagramm über alle Hosts
+      </md-checkbox>
+      <md-checkbox ng-model="newSettings.showHostsList" class="md-hue-1"
+                   aria-label="Liste mit Hosts">
+        Liste mit fehlerhaften Hosts
+      </md-checkbox>
+      <md-checkbox ng-model="newSettings.showQmgrList" class="md-hue-1"
+                   aria-label="Liste mit Queue Managern">
+        Liste mit ausgefallenen Queue Managern
+      </md-checkbox>
+      <md-checkbox ng-model="newSettings.showPatchList" class="md-hue-1"
+                   aria-label="Patches">
+        Aktuelle Patches
+      </md-checkbox>
+      <md-checkbox ng-model="newSettings.showQuote" class="md-hue-1"
+                   aria-label="Zitat">
+        Motivierendes Zitat
+      </md-checkbox>
+      <md-input-container class="md-block">
+        <label>Höhe der Listen</label>
+        <input required type="number" step="any" name="height" ng-model="newSettings.listMaxHeight" min="100"
+               max="1000"/>
+      </md-input-container>
+
+      <h3 class="md-headline">
+        Standard-Filter in Pymon
+      </h3>
+      <md-checkbox ng-model="newSettings.showPymonInfo" class="md-hue-1"
+                   aria-label="Info">
+        <md-icon class="color-icon fill-green" md-svg-icon="res/img/check_circle_black.svg"></md-icon>
+        Info
+      </md-checkbox>
+      <md-checkbox ng-model="newSettings.showPymonWarning" class="md-hue-1"
+                   aria-label="Warning">
+        <md-icon class="color-icon fill-orange" md-svg-icon="res/img/warning_black.svg"></md-icon>
+        Warning
+      </md-checkbox>
+      <md-checkbox ng-model="newSettings.showPymonError" class="md-hue-1"
+                   aria-label="Error">
+        <md-icon class="color-icon fill-red" md-svg-icon="res/img/error_black.svg"></md-icon>
+        Error
+      </md-checkbox>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button ng-click="restoreSettings()">
+      Standard wiederherstellen
+    </md-button>
+    <div flex></div>
+    <md-button ng-click="saveSettings(newSettings)">
+      Speichern
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>
+

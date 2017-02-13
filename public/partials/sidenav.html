@@ -1,0 +1,77 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<header class="nav-header center-flex">
+  <div>
+    <img src="res/img/app_logo.png">
+  </div>
+</header>
+<md-content flex role="navigation">
+  <div class="demo-hint md-padding" ng-if="demoService.demoMode">
+    <div class="bold md-title">Demo-Modus</div>
+    Die App zeigt keine aktuellen Daten und die Funktionsweise ist eingeschränkt.
+  </div>
+  <md-list>
+    <md-list-item class="md-2-line" ui-sref="overview">
+      <md-icon md-svg-icon="res/img/dashboard_black.svg" class="md-avatar"></md-icon>
+      <div class="md-list-item-text">
+        <h3>Übersicht</h3>
+      </div>
+    </md-list-item>
+    <md-list-item class="md-2-line" ui-sref="search">
+      <md-icon md-svg-icon="res/img/search_black.svg" class="md-avatar"></md-icon>
+      <div class="md-list-item-text">
+        <h3>Suche</h3>
+      </div>
+    </md-list-item>
+    <md-subheader class="md-no-sticky">Tools</md-subheader>
+    <md-list-item class="md-2-line" ui-sref="pymon">
+      <md-icon md-svg-icon="res/img/assessment_black.svg" class="md-avatar"></md-icon>
+      <div class="md-list-item-text">
+        <h3>Pymon</h3>
+      </div>
+    </md-list-item>
+    <md-list-item class="md-2-line" ui-sref="salt">
+      <md-icon md-svg-icon="res/img/device_hub_black.svg" class="md-avatar"></md-icon>
+      <div class="md-list-item-text">
+        <h3>SaltStack</h3>
+      </div>
+    </md-list-item>
+    <md-list-item class="md-2-line" ui-sref="psc">
+      <md-icon md-svg-icon="res/img/assignment_black.svg" class="md-avatar"></md-icon>
+      <div class="md-list-item-text">
+        <h3>PSC</h3>
+      </div>
+    </md-list-item>
+    <md-list-item class="md-2-line" ui-sref="patchday">
+      <md-icon md-svg-icon="res/img/date_range_black.svg" class="md-avatar"></md-icon>
+      <div class="md-list-item-text">
+        <h3>Patchday-Kalender</h3>
+      </div>
+    </md-list-item>
+    <md-subheader class="md-no-sticky">Informationen</md-subheader>
+    <md-list-item class="md-2-line" ui-sref="imprint">
+      <md-icon md-svg-icon="res/img/person_outline_black.svg" class="md-avatar"></md-icon>
+      <div class="md-list-item-text">
+        <h3>Impressum</h3>
+      </div>
+    </md-list-item>
+    <md-list-item class="md-2-line" ui-sref="license">
+      <md-icon md-svg-icon="res/img/copyright_black.svg" class="md-avatar"></md-icon>
+      <div class="md-list-item-text">
+        <h3>Lizenz</h3>
+      </div>
+    </md-list-item>
+    <!--
+    <md-subheader class="md-no-sticky">Für die Entwicklung</md-subheader>
+    <md-list-item class="md-2-line" ui-sref="tests">
+      <md-icon md-svg-icon="res/img/hand.svg" class="md-avatar"></md-icon>
+      <div class="md-list-item-text">
+        <h3>Tests</h3>
+      </div>
+    </md-list-item>
+    -->
+  </md-list>
+</md-content>

@@ -1,0 +1,89 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<html lang="de">
+<head>
+  <title>MONIGATOR</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Monitoring Aggregator">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="16x16" href="res/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="res/img/favicon_big.png">
+  <link rel="icon" type="image/png" sizes="any" href="res/img/db_logo.svg">
+  <link rel='stylesheet' href='res/css/roboto-font.css'>
+  <link rel="stylesheet" href="res/css/angular-material.min.css">
+  <link rel='stylesheet' href='res/css/loading-bar.min.css'/>
+  <link rel="stylesheet" href="res/css/loading-screen.css">
+  <link rel="stylesheet" href="res/css/breadcrumbs.css">
+  <link rel="stylesheet" href="res/css/main.css">
+</head>
+<body class="overflow-none">
+
+<noscript>
+  <div id="noscript-hint">
+    <div>
+      <img src="res/img/nojs_warning.png" alt="JavaScript erforderlich">
+      <h3>Diese Anwendung erfordert JavaScript</h3>
+    </div>
+  </div>
+</noscript>
+
+<div id="app" ng-app="dashboardApp" layout="row" ng-controller="MainCtrl" ng-cloak>
+
+  <div id="loading-screen" ng-if="showLoadingIndicator">
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+  </div>
+
+  <md-sidenav id="left-nav" md-component-id="left-nav" md-is-locked-open="$mdMedia('gt-sm')"
+              class="md-sidenav-left md-whiteframe-4dp" ng-click="toggleLeft()" md-disable-backdrop
+              ng-include="'partials/sidenav.html'"></md-sidenav>
+
+  <div layout="column" flex>
+
+    <md-toolbar id="toolbar" class="md-whiteframe-z1" ng-include="'partials/toolbar.html'"></md-toolbar>
+
+    <div id="content" ui-view flex></div>
+
+  </div>
+
+</div>
+
+<!-- Angular and Angular Material Libraries -->
+<script src="res/js/jquery.min.js"></script>
+<script src="res/js/angular.min.js"></script>
+<script src="res/js/angular-animate.min.js"></script>
+<script src="res/js/angular-aria.min.js"></script>
+<script src="res/js/angular-messages.min.js"></script>
+<script src="res/js/angular-cookies.js"></script>
+<script src="res/js/angular-sanitize.min.js"></script>
+<script src="res/js/angular-material.min.js"></script>
+<!-- Third party JS files -->
+<script src='res/js/loading-bar.min.js'></script>
+<script src="res/js/ng-google-chart.min.js"></script>
+<script src="res/js/angular-ui-router.min.js"></script>
+<script src="res/js/angular-breadcrumb.min.js"></script>
+<!-- Custom JS Files -->
+<script src="res/js/controllers.js"></script>
+<script src="res/js/directives.js"></script>
+<script src="res/js/services.js"></script>
+<script src="res/js/MainCtrl.js"></script>
+<script src="res/js/SearchCtrl.js"></script>
+<script src="res/js/OverviewCtrl.js"></script>
+<script src="res/js/PymonCtrl.js"></script>
+<script src="res/js/SaltCtrl.js"></script>
+<script src="res/js/PatchdayCtrl.js"></script>
+<script src="res/js/PscCtrl.js"></script>
+<script src="res/js/TestCtrl.js"></script>
+<script src="res/js/ChartCtrl.js"></script>
+<script src="res/js/app.js"></script>
+
+</body>
+</html>

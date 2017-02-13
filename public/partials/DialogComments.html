@@ -1,0 +1,21 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<md-dialog aria-label="Comments dialog" class="max-width-dialog">
+  <md-dialog-content class="layout-padding">
+    <div class="md-headline">Kommentare zu {{server}}</div>
+    <div ng-if="content.PK_COMMENTS_PUBLIC != null">
+        <span>{{content.PK_COMMENTS_PUBLIC}}</span>
+    </div>
+    <div ng-if="content.QCOMMENTS_PUBLIC != null">
+        <span class="bold">Quartals-spezifisch:</span>
+        <br>
+        <span>{{content.QCOMMENTS_PUBLIC}}</span>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button ng-click="closeDialog()" class="md-primary">Schließen</md-button>
+  </md-dialog-actions>
+</md-dialog>

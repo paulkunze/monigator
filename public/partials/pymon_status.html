@@ -1,0 +1,189 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div id="pymon_status" class="overflow-none" ng-init="ctrl.getStatus()">
+
+  <h1 class="md-display-1 layout-padding">
+    Anwendungsname: {{ctrl.data.status.name}}
+  </h1>
+
+  <div class="md-whiteframe-z1 round-corners" ng-class="{'margin-10p':$mdMedia('gt-xs'), 'margin-8':$mdMedia('xs') }">
+
+    <md-toolbar class="round-corners-top md-hue-1 z-1">
+      <h1 class="md-toolbar-tools">Vorhandene Pipes</h1>
+    </md-toolbar>
+
+    <md-list>
+      <md-list-item ng-repeat="(pipe, data) in ctrl.data.status.pipestatus" ng-click="scrollTo(pipe)">
+        <p>{{pipe}}</p>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-list-item ng-click="scrollTo('table')">
+        <p>Zur Tabelle</p>
+      </md-list-item>
+    </md-list>
+  </div>
+
+  <h2 class="md-headline layout-padding margin-bottom-10">
+    Zustände der Pipes
+  </h2>
+
+  <md-content flex id="cards" class="overflow-none">
+    <div layout-wrap layout-xs="column" layout="row" layout-align="space-around stretch">
+      <md-card id="{{name}}" flex class="min-width-400" ng-repeat="(name, data) in ctrl.data.status.pipestatus">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{name}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <table class="table">
+            <tbody>
+            <tr>
+              <td>
+                {{ctrl.descriptions.messages_received}}
+              </td>
+              <td>
+                {{data.messages_received}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ctrl.descriptions.msgs_per_sec}}
+              </td>
+              <td>
+                {{data.msgs_per_sec | number:8}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ctrl.descriptions.num_outputs}}
+              </td>
+              <td>
+                {{data.num_outputs}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ctrl.descriptions.process_lasttime}}
+              </td>
+              <td>
+                {{data.process_lasttime | number:8}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ctrl.descriptions.process_totaltime}}
+              </td>
+              <td>
+                {{data.process_totaltime | number:8}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ctrl.descriptions.queuedepth}}
+              </td>
+              <td>
+                {{data.queuedepth}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ctrl.descriptions.starttime}}
+              </td>
+              <td>
+                {{data.starttime.split('.')[0]}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ctrl.descriptions.state}}
+              </td>
+              <td>
+                {{data.state | number:8}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {{ctrl.descriptions.time_per_msg}}
+              </td>
+              <td>
+                {{data.time_per_msg | number:8}}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+
+      <md-card id="pymon-status-table" flex class="min-width-600">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Tabellarische Übersicht</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="overflow-x">
+          <table>
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Empfangene Nachrichten</th>
+              <th>Nachrichten pro Sekunde</th>
+              <th>Anzahl Outputs</th>
+              <th>Dauer zuletzt</th>
+              <th>Dauer insgesamt</th>
+              <th>Füllstand</th>
+              <th>Startzeit</th>
+              <th>Zustand</th>
+              <th>Zeit pro Nachricht</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="(name, data) in ctrl.data.status.pipestatus">
+              <td class="bold">
+                {{name}}
+              </td>
+              <td class="align-right">
+                {{data.messages_received}}
+              </td>
+              <td class="align-right">
+                {{data.msgs_per_sec | number:4}}
+              </td>
+              <td class="align-right">
+                {{data.num_outputs}}
+              </td>
+              <td class="align-right">
+                {{data.process_lasttime | number:8}}
+              </td>
+              <td class="align-right">
+                {{data.process_totaltime | number:4}}
+              </td>
+              <td class="align-right">
+                {{data.queuedepth}}
+              </td>
+              <td class="center-text">
+                {{data.starttime.split('.')[0]}}
+              </td>
+              <td class="center-text">
+                {{data.state}}
+              </td>
+              <td class="align-right">
+                {{data.time_per_msg | number:8}}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </md-card-content>
+      </md-card>
+
+    </div>
+  </md-content>
+
+  <md-button id="scroll-up" class="md-fab md-fab-bottom-right sliding-fab" aria-label="Nach oben" scrolling-fab
+             ng-click="scrollTo('pymon_status')">
+    <md-icon md-svg-icon="res/img/arrow_up_white.svg"></md-icon>
+  </md-button>
+
+</div>

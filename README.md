@@ -1,7 +1,21 @@
 # Monigator - The aggregator for monitoring data
 
-Dieses Repository wird die Implementierung der Anwendung "Monigator" aus meiner Masterarbeit enthalten. Die Veröffentlichung ist allerdings noch nicht möglich, weil zuvor die Frage nach dem Urheberrecht geklärt werden muss.
+The name Monigator is an abbreviation of Monitoring Aggregator. It is a Web-Application that displays monitoring data from different data sources in a usable and clear way.
+The App is based on Angular Material in the Frontend and NodeJS in the Backend.
 
-Die Bereitstellung unter einer freien Lizenz (GPL/ MIT) wird zurzeit von der Rechtsabteilung der Deutschen Bahn bearbeitet. Danach wird der Quelltext hier veröffentlicht.
+This project was created by Paul Kunze as a master's thesis at Freie Universität Berlin in cooperation with DB Systel GmbH, a company from Deutsche Bahn.
 
-Eine funktionsfähige Demo kann unter folgendem Link gestartet werden: http://paulkunze.de/apps/monigator
+Demo: http://paulkunze.de/apps/monigator
+
+License: MIT
+
+
+## Installation Instructions
+
+1. Copy all project files to any directory on the server
+2. Download and install NodeJS (from https://nodejs.org/en/)
+3. Add NodeJS to your PATH with 'export PATH=/path/to/nodejs/bin/:$PATH'
+4. Start the server and the proxy by running 'node server.js'
+5. Open the browser and connect to your server on port 8000
+
+

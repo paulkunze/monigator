@@ -1,0 +1,222 @@
+{
+  "results": {
+    "20160907141515927390": {
+      "_stamp": 1473243316000,
+      "cmd": "_return",
+      "fun": "cmd.run",
+      "fun_args": [
+        "/opt/mqm/mqbf/bin/checkmq"
+      ],
+      "id": "mqm@dsazentr-208v",
+      "jid": "20160907141515927390",
+      "retcode": 0,
+      "return": "\u001b[H\u001b[JWed Sep  7 14:15:15 CEST 2016\n*** hostname = dsazentr-208v ***\n-----------------------------------------------------\nLQAD Queue-Manager aktiv\n-----------------------------------------------------\n Tiefe\tGET\t\tPUT\t\tTrigger\t\tQueuename  \n----------------------------------------------------- \t\t\t\t\n 38\tENABLED\t\tENABLED\t\tNOTRIGGER\tDSA.PROCESSING.ERRORQ\n 1\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.ADMIN.QMGR.EVENT\n 8924\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.AUTH.DATA.QUEUE\n 1\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.CHANNEL.SYNCQ\n 3\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.CHLAUTH.DATA.QUEUE\n 2\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.CLUSTER.REPOSITORY.QUEUE\n 1\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.DURABLE.SUBSCRIBER.QUEUE\n 2\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.HIERARCHY.STATE\n 1\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.INTER.QMGR.FANREQ\n 331\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.MQTT.PERSISTENT.STATE\n 26\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.MQTT.TRANSMIT.QUEUE\n 2\tENABLED\t\tENABLED\t\tNOTRIGGER\tSYSTEM.RETAINED.PUB.QUEUE\n=====================================================\n channel start for: LQAD.TO.SYSTEM.TCP.MQTT.TRANSMIT.QUEUE \n  \nLQAD Channel-Initiator aktiv\n----------------------------------------------------------------------\nTIMESTAMP      TYPE  CHANNEL-NAME         STATUS   BYTES       MSGS\n----------------------------------------------------------------------\n=====================================================\nused  78% /var\nused  77% /opt/mqm\n-----------------------------------------------------\nListe der QueueManager: LQAD\n/var/mqm/errors/AMQ4162.0.FDC\n/var/mqm/errors/AMQ4163.0.FDC\n/var/mqm/errors/AMQ4359.0.FDC\n-----------------------------------------------------\nqpea is already running\nqpcfg is already running\nqpmon is already running",
+      "success": true
+    },
+    "20160907141531005520": {
+      "_stamp": 1473243332000,
+      "cmd": "_return",
+      "fun": "grains.get",
+      "fun_args": [
+        "wmq_conn"
+      ],
+      "id": "mqm@dsazentr-208v",
+      "jid": "20160907141531005520",
+      "retcode": 0,
+      "return": {
+        "LQAD": {
+          "63779B5701010020": {
+            "APPLTAG": "amqzfuma",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5701040020": {
+            "APPLTAG": "amqrrmfa",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5701090020": {
+            "APPLTAG": "amqzdmaa",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5701120020": {
+            "APPLTAG": "runmqchi",
+            "APPLTYPE": "CHINIT",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5701130020": {
+            "APPLTAG": "amqpcsea",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5701160020": {
+            "APPLTAG": "amqfqpub",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5701170020": {
+            "APPLTAG": "amqfqpub",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5701180020": {
+            "APPLTAG": "amqfqpub",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5701190020": {
+            "APPLTAG": "amqfcxba",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B57011A0020": {
+            "APPLTAG": "amqfcxba",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B57011B0020": {
+            "APPLTAG": "amqfcxba",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B57011C0020": {
+            "APPLTAG": "amqfcxba",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B57011D0020": {
+            "APPLTAG": "amqfcxba",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B57011E0020": {
+            "APPLTAG": "amqfcxba",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B57011F0020": {
+            "APPLTAG": "amqfcxba",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5701850020": {
+            "APPLTAG": "qpmon",
+            "APPLTYPE": "USER",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B570C390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "SYSTEMEXT",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5713390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "SYSTEMEXT",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5714390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "USER",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5718390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "SYSTEMEXT",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5719390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "USER",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B571D390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "SYSTEMEXT",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B571E390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "USER",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5722390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "SYSTEMEXT",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5723390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "USER",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B5727390020": {
+            "APPLTAG": "java",
+            "APPLTYPE": "SYSTEMEXT",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          },
+          "63779B575BD82321": {
+            "APPLTAG": "runmqsc",
+            "APPLTYPE": "SYSTEM",
+            "CHANNEL": " ",
+            "CONNAME": " ",
+            "USERID": "mqm"
+          }
+        }
+      },
+      "success": true
+    }
+  }
+}

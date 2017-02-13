@@ -1,0 +1,87 @@
+{
+    "name": "py3mon",
+    "pipes": [
+        "RateConverterPipe",
+        "CachePipe",
+        "NotificationLogPipe",
+        "EventLogPipe",
+        "TaloSenderPipe",
+        "StatisticPipe"
+    ],
+    "pipestatus": {
+        "CachePipe": {
+            "messages_received": 5188622,
+            "msgs_per_sec": 75.41844730693947,
+            "name": "CachePipe",
+            "num_outputs": 3,
+            "process_lasttime": 2.8848648071289062e-05,
+            "process_totaltime": 272.1454553604126,
+            "queuedepth": 0,
+            "starttime": "2016-07-27 16:54:15.922756",
+            "state": "State.running",
+            "time_per_msg": 5.245043006802434e-05
+        },
+        "EventLogPipe": {
+            "messages_received": 280,
+            "msgs_per_sec": 0.004069898536368408,
+            "name": "EventLogPipe",
+            "num_outputs": 0,
+            "process_lasttime": 0.00033783912658691406,
+            "process_totaltime": 0.055039405822753906,
+            "queuedepth": 0,
+            "starttime": "2016-07-27 16:54:15.922257",
+            "state": "State.running",
+            "time_per_msg": 0.00019656930650983537
+        },
+        "NotificationLogPipe": {
+            "messages_received": 189,
+            "msgs_per_sec": 0.0027471815217519685,
+            "name": "NotificationLogPipe",
+            "num_outputs": 0,
+            "process_lasttime": 8.678436279296875e-05,
+            "process_totaltime": 0.03436422348022461,
+            "queuedepth": 91,
+            "starttime": "2016-07-27 16:54:15.922486",
+            "state": "State.running",
+            "time_per_msg": 0.00018182128825515668
+        },
+        "RateConverterPipe": {
+            "messages_received": 4399067,
+            "msgs_per_sec": 63.94198768419749,
+            "name": "RateConverterPipe",
+            "num_outputs": 2,
+            "process_lasttime": 2.0742416381835938e-05,
+            "process_totaltime": 143.68245148658752,
+            "queuedepth": 0,
+            "starttime": "2016-07-27 16:54:15.922982",
+            "state": "State.running",
+            "time_per_msg": 3.2662028445256126e-05
+        },
+        "StatisticPipe": {
+            "messages_received": 4648815,
+            "msgs_per_sec": 67.57216153229169,
+            "name": "StatisticPipe",
+            "num_outputs": 0,
+            "process_lasttime": 2.384185791015625e-05,
+            "process_totaltime": 76.89996385574341,
+            "queuedepth": 0,
+            "starttime": "2016-07-27 16:54:15.921790",
+            "state": "State.running",
+            "time_per_msg": 1.6541842137349712e-05
+        },
+        "TaloSenderPipe": {
+            "messages_received": 280,
+            "msgs_per_sec": 0.004069898522821361,
+            "name": "TaloSenderPipe",
+            "num_outputs": 0,
+            "process_lasttime": 0.0009031295776367188,
+            "process_totaltime": 1.2015388011932373,
+            "queuedepth": 0,
+            "starttime": "2016-07-27 16:54:15.922040",
+            "state": "State.running",
+            "time_per_msg": 0.004291210004261562
+        }
+    },
+    "starttime": "2016-07-27 16:54:15.923065",
+    "state": "State.running"
+}

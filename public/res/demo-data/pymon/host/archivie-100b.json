@@ -1,0 +1,152 @@
+{
+    "UQPV": {
+        "AA.AASHMDAT.INPUT": {
+            "severity": 10
+        },
+        "AA.AASHMRCV.INPUT": {
+            "severity": 10
+        },
+        "AA.ERROR.INPUT": {
+            "severity": 10
+        },
+        "AR.ARFKUNFE.INPUT": {
+            "severity": 10
+        },
+        "BF.ADMIN.SVRCONN": {
+            "severity": 10
+        },
+        "DEFAULT.PROCESS.INIT": {
+            "severity": 10
+        },
+        "DLQ": {
+            "severity": 10
+        },
+        "MQPC.AA": {
+            "severity": 10
+        },
+        "MQPC.TO.UQPV.TCP.XAR": {
+            "severity": 10
+        },
+        "QPASA.57537B7120001402": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.ACCOUNTING.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.ACTIVITY.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.CHANNEL.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.COMMAND.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.COMMAND.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.CONFIG.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.LOGGER.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.PERFM.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.QMGR.EVENT": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.STATISTICS.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.ADMIN.TRACE.ROUTE.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.AUTH.DATA.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.BROKER.ADMIN.STREAM": {
+            "severity": 10
+        },
+        "SYSTEM.BROKER.CONTROL.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.BROKER.DEFAULT.STREAM": {
+            "severity": 10
+        },
+        "SYSTEM.BROKER.INTER.BROKER.COMMUNICATIONS": {
+            "severity": 10
+        },
+        "SYSTEM.CHANNEL.INITQ": {
+            "severity": 10
+        },
+        "SYSTEM.CHANNEL.SYNCQ": {
+            "severity": 10
+        },
+        "SYSTEM.CICS.INITIATION.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.CLUSTER.COMMAND.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.CLUSTER.HISTORY.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.CLUSTER.REPOSITORY.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.CLUSTER.TRANSMIT.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.DEAD.LETTER.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.DEFAULT.INITIATION.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.DEFAULT.LOCAL.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.DURABLE.SUBSCRIBER.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.HIERARCHY.STATE": {
+            "severity": 10
+        },
+        "SYSTEM.INTER.QMGR.CONTROL": {
+            "severity": 10
+        },
+        "SYSTEM.INTER.QMGR.FANREQ": {
+            "severity": 10
+        },
+        "SYSTEM.INTER.QMGR.PUBS": {
+            "severity": 10
+        },
+        "SYSTEM.INTERNAL.REPLY.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.PENDING.DATA.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.RETAINED.PUB.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.SELECTION.EVALUATION.QUEUE": {
+            "severity": 10
+        },
+        "SYSTEM.SELECTION.VALIDATION.QUEUE": {
+            "severity": 10
+        },
+        "TCP/1414": {
+            "severity": 10
+        },
+        "TCP/1499": {
+            "severity": 10
+        },
+        "UQPV": {
+            "severity": 10
+        },
+        "severity": 10
+    }
+}

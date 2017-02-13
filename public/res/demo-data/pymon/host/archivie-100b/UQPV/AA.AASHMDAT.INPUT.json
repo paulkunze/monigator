@@ -1,0 +1,11 @@
+{
+    "depth": {
+        "severity": "info"
+    },
+    "ipprocs": {
+        "severity": "info"
+    },
+    "opprocs": {
+        "severity": "info"
+    }
+}

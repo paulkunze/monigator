@@ -1,0 +1,229 @@
+<!--
+Copyright (C) 2016 Paul Kunze
+License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<div layout="column">
+
+  <md-content id="cards" ng-controller="ChartCtrl">
+    <div layout-wrap layout-xs="column" layout="row" layout-align="space-around stretch">
+
+
+      <md-card flex-gt-xs class="min-width-400" ng-show="settingsService.settings.showEnvsChart">
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Status aller Verfahren</span>
+            <span flex></span>
+            <md-button class="md-icon-button card-title-button" aria-label="Info"
+                       ng-click="showAppsChartDialog($event, 'body')">
+              <md-icon md-svg-icon="res/img/info_black.svg"></md-icon>
+            </md-button>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div class="pie-chart" google-chart chart="applicationChart"
+               agc-on-select="selectApplicationChartItem(selectedItem)">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+        <div flex></div>
+      </md-card>
+
+
+      <md-card flex-gt-xs class="min-width-400" ng-show="settingsService.settings.showEnvsList">
+        <md-card-title flex="none">
+          <md-card-title-text layout="row">
+            <span class="md-headline">Verfahren</span>
+            <span flex></span>
+            <!-- status filter -->
+            <div hide-xs hide-sm class="center-flex margin-top-4">
+              <md-checkbox hide-xs hide-sm ng-model="overviewService.pymonAppsFilter.info"
+                           class="md-primary md-hue-1 filter-checkbox" aria-label="Checkbox Info">
+                <md-icon class="color-icon fill-green" md-svg-icon="res/img/check_circle_black.svg"></md-icon>
+              </md-checkbox>
+              <md-checkbox hide-xs hide-sm ng-model="overviewService.pymonAppsFilter.warning"
+                           class="md-primary md-hue-1 filter-checkbox" aria-label="Checkbox Warning">
+                <md-icon class="color-icon fill-orange" md-svg-icon="res/img/warning_black.svg"></md-icon>
+              </md-checkbox>
+              <md-checkbox hide-xs hide-sm ng-model="overviewService.pymonAppsFilter.error"
+                           class="md-primary md-hue-1 filter-checkbox" aria-label="Checkbox Error">
+                <md-icon class="color-icon fill-red" md-svg-icon="res/img/error_black.svg"></md-icon>
+              </md-checkbox>
+            </div>
+            <md-menu hide-gt-sm md-position-mode="target-right target" class="padding-0">
+              <md-button class="md-icon-button card-title-button" aria-label="Status Filter"
+                         ng-click="$mdOpenMenu($event)">
+                <md-icon md-menu-origin class="color-icon" md-svg-icon="res/img/more_vert_black.svg"></md-icon>
+              </md-button>
+              <md-menu-content width="4">
+                <md-menu-item>
+                  <div class="center-flex">
+                    <md-checkbox ng-model="overviewService.pymonAppsFilter.info"
+                                 class="md-primary md-hue-1 filter-checkbox" aria-label="Checkbox Info">
+                      <md-icon class="color-icon fill-green" md-svg-icon="res/img/check_circle_black.svg"></md-icon>
+                    </md-checkbox>
+                    <md-checkbox ng-model="overviewService.pymonAppsFilter.warning"
+                                 class="md-primary md-hue-1 filter-checkbox" aria-label="Checkbox Warning">
+                      <md-icon class="color-icon fill-orange" md-svg-icon="res/img/warning_black.svg"></md-icon>
+                    </md-checkbox>
+                    <md-checkbox ng-model="overviewService.pymonAppsFilter.error"
+                                 class="md-primary md-hue-1 filter-checkbox" aria-label="Checkbox Error">
+                      <md-icon class="color-icon fill-red" md-svg-icon="res/img/error_black.svg"></md-icon>
+                    </md-checkbox>
+                  </div>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
+
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <!-- list with entries -->
+          <md-list class="padding-0">
+            <div class="md-padding" ng-if="overviewService.errorOccured">
+              Fehler bei der Abfrage
+            </div>
+            <div class="error-hosts-list">
+              <md-list-item ng-repeat="app in overviewService.pymonApps" ng-click="startSearchForTerm(app.name)"
+                            ng-hide="(severityService.isSeverityInfo(app.severity) && overviewService.pymonAppsFilter.info === false)
+                            || (severityService.isSeverityWarning(app.severity) && overviewService.pymonAppsFilter.warning === false)
+                            || (severityService.isSeverityError(app.severity) && overviewService.pymonAppsFilter.error === false)
+                            || (severityService.isSeverityNone(app.severity) && overviewService.pymonAppsFilter.unknown === false)"
+                            ng-class="{'list-item-info': severityService.isSeverityInfo(app.severity),
+                            'list-item-warning': severityService.isSeverityWarning(app.severity),
+                            'list-item-error': severityService.isSeverityError(app.severity)}"
+                            class="pymon-list-item truncate-text">
+                <p>{{app.name}}</p>
+              </md-list-item>
+            </div>
+          </md-list>
+        </md-card-content>
+      </md-card>
+
+
+      <md-card flex-gt-xs class="min-width-400" ng-show="settingsService.settings.showHostsChart">
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Status aller Hosts</span>
+            <span flex></span>
+            <md-button class="md-icon-button card-title-button" aria-label="Info"
+                       ng-click="showHostChartDialog($event, 'body')">
+              <md-icon md-svg-icon="res/img/info_black.svg"></md-icon>
+            </md-button>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content class="chart-container">
+          <div class="pie-chart" google-chart chart="hostChart" agc-on-select="selectHostChartItem(selectedItem)">
+            <div class="chart-loading-indicator">
+              <md-icon md-svg-icon="res/img/loading_black.svg" class="color-icon rotate"></md-icon>
+            </div>
+          </div>
+        </md-card-content>
+        <div flex></div>
+      </md-card>
+
+
+      <md-card flex-gt-xs class="min-width-300" ng-show="settingsService.settings.showHostsList">
+        <md-card-title flex="none">
+          <md-card-title-text>
+            <span class="md-headline">Fehlerhafte Hosts</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <!-- list with entries -->
+          <md-list class="padding-0">
+            <div class="md-padding" ng-if="overviewService.isListEmpty && !overviewService.errorOccured">
+              <md-icon md-svg-icon="res/img/check_circle_black.svg" class="md-avatar color-icon fill-green"></md-icon>
+              Alles in Ordnung
+            </div>
+            <div class="md-padding" ng-if="overviewService.errorOccured">
+              Fehler bei der Abfrage
+            </div>
+            <div class="error-hosts-list" ng-if="!overviewService.isListEmpty">
+              <md-list-item ng-repeat="host in overviewService.errorHosts" ui-sref="pymon.host({hname:host})"
+                            class="list-item-error pymon-list-item truncate-text">
+                <p>{{host}}</p>
+              </md-list-item>
+            </div>
+          </md-list>
+        </md-card-content>
+      </md-card>
+
+
+      <md-card flex-gt-xs class="min-width-300" ng-show="settingsService.settings.showQmgrList">
+        <md-card-title flex="none">
+          <md-card-title-text>
+            <span class="md-headline">Ausgefallene Queue Manager</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <!-- list with entries -->
+          <md-list class="padding-0">
+            <div class="md-padding" ng-if="overviewService.isQmgrListEmpty && !overviewService.errorOccured">
+              <md-icon md-svg-icon="res/img/check_circle_black.svg" class="md-avatar color-icon fill-green"></md-icon>
+              Alles in Ordnung
+            </div>
+            <div class="md-padding" ng-if="overviewService.errorOccured">
+              Fehler bei der Abfrage
+            </div>
+            <div class="error-hosts-list" ng-if="!overviewService.isQmgrListEmpty">
+              <md-list-item ng-repeat="host in overviewService.unavailableQmgrHosts"
+                            ui-sref="pymon.host({hname:host.split(' @ ')[1]})"
+                            class="list-item-error pymon-list-item truncate-text">
+                <p>{{host}}</p>
+              </md-list-item>
+            </div>
+          </md-list>
+        </md-card-content>
+      </md-card>
+
+
+      <md-card flex-gt-xs class="min-width-300" ng-show="settingsService.settings.showPatchList">
+        <md-card-title flex="none">
+          <md-card-title-text>
+            <span class="md-headline">Heutige Patches</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <div class="md-padding" ng-hide="overviewService.isPatchPlanned">
+            Kein Patch geplant      <!-- TODO never showing -->
+          </div>
+          <div ng-repeat="(date, hours) in overviewService.patches" class="patchday-overview-list">
+            <table class="md-padding">
+              <tr ng-if="overviewService.isPatchPlanned" ng-repeat="(hour, servers) in hours">
+                <td class="align-top">
+                  {{hour}}
+                </td>
+                <td class="padding-side-8 full-width">
+                  <div ng-repeat="(server, content) in servers">
+                    <div layout="row">
+                      {{server}}
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </md-card-content>
+      </md-card>
+
+
+      <md-card flex-gt-xs class="min-width-300" ng-show="settingsService.settings.showQuote">
+        <div flex></div>
+        <md-card-content>
+          <div class="md-headline">
+            {{quote[0]}}
+          </div>
+          <p>
+            {{quote[1]}}
+          </p>
+        </md-card-content>
+        <div flex></div>
+      </md-card>
+
+    </div>
+  </md-content>
+
+</div>

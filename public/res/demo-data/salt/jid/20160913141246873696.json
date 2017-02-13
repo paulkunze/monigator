@@ -1,0 +1,27 @@
+{
+  "20160913141246873696": [
+    {
+      "arg": [
+        "apps.scintilla.esbdomain.__create__",
+        {
+          "__kwarg__": true,
+          "pillar": {
+            "DomainNameKey": "esbdomain_scn_d1"
+          }
+        }
+      ],
+      "cmd": "publish",
+      "fun": "state.sls",
+      "jid": "20160913141246873696",
+      "kwargs": {
+        "delimiter": ":",
+        "show_jid": false,
+        "show_timeout": true
+      },
+      "ret": "",
+      "tgt": "soa@schwebach",
+      "tgt_type": "glob",
+      "user": "salt"
+    }
+  ]
+}

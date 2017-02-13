@@ -1,0 +1,14 @@
+{
+  "minions": [
+    "mqm@dsazentr-103v",
+    "mqm@dsazentr-104v",
+    "mqm@dsazentr-203v",
+    "mqm@dsazentr-208v",
+    "mqm@dsazentr-209v",
+    "salt@jinan",
+    "soa@sadovo",
+    "soa@saltnes",
+    "soa@samea",
+    "soa@sasaram"
+  ]
+}

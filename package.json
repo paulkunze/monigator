@@ -1,0 +1,12 @@
+{
+  "name": "monigator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monitoring Aggregator",
+  "main": "server.js",
+  "author": "Paul Kunze",
+  "dependencies": {
+    "cors-anywhere": "^0.4.0",
+    "express": "^4.13.4"
+  }
+}
